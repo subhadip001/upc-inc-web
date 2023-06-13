@@ -1,0 +1,9 @@
+.about-sec{
+    @apply flex flex-col items-center py-6  bg-white ;
+}
+.about-sec h1{
+    @apply text-4xl text-blue-300 font-semibold mb-8;
+}
+.about-sec p{
+    @apply text-[20px] text-grey-200 font-medium w-10/12  mb-8 leading-[233%];
+}
