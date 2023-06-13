@@ -6,7 +6,7 @@
 }
 
 .links {
-    @apply flex justify-between w-2/5 items-center;
+    @apply flex justify-between w-2/5 items-center min-w-[400px];
 }
 
 .logo {

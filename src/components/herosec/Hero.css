@@ -1,0 +1,31 @@
+
+
+.hero-sec{
+    @apply flex py-14  w-screen justify-around;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(248, 253, 255, 0) 0%, #F8FDFF 99.69%);
+}
+.hero-sec-info{
+    @apply  py-14  w-1/3;
+}
+.hero-sec-info h1{
+    @apply text-[52px] font-semibold text-blue-300 ;
+}
+.hero-sec-info p{
+    @apply text-grey mt-6;
+}
+.hero-sec-info button{
+    @apply text-white mt-8 text-[20px] font-semibold bg-blue-200 rounded-lg px-9 py-4 font-poppins cursor-pointer;
+}
+.hero-img-cont{
+    @apply max-w-[50%] px-6;
+}
+
+.hero-img-cont img{
+    @apply w-[445px] h-[445px] rounded-[1000px] block z-0 ml-auto mr-auto;
+}
+.floating-txt{
+    @apply bg-bisque py-4 px-6 text-2xl w-fit rounded-md z-10 absolute ;
+}
+.floating-txt em{
+    @apply not-italic text-blue-100;
+}
