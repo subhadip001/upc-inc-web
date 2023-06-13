@@ -19,7 +19,10 @@ export default {
       bglight:
         "background: radial-gradient(50% 50% at 50% 50%, rgba(248, 253, 255, 0) 0%, #F8FDFF 99.69%)",
       bisque: "#FFF4CA",
-      grey: "#767C7B",
+      grey: {
+        100: "#767C7B",
+        200: "#5E6261",
+      },
     },
   },
   plugins: [],

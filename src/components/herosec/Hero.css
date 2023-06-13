@@ -11,7 +11,7 @@
     @apply text-[52px] font-semibold text-blue-300 ;
 }
 .hero-sec-info p{
-    @apply text-grey mt-6;
+    @apply text-grey-100 mt-6;
 }
 .hero-sec-info button{
     @apply text-white mt-8 text-[20px] font-semibold bg-blue-200 rounded-lg px-9 py-4 font-poppins cursor-pointer;
