@@ -1,0 +1,16 @@
+.admitcards-sec {
+    @apply py-10 pl-[105px] w-full bg-cream;
+}
+
+.admitcards-sec h1 {
+    @apply text-4xl text-blue-300 font-semibold mb-8;
+}
+
+.ac-card-cont {
+    @apply grid grid-cols-3 gap-x-8 mb-9;
+}
+
+.ac-card {
+    @apply bg-white pt-8 pb-7 px-5 text-xl mb-5 text-blue-300 font-medium min-w-[295px] rounded-[18px];
+    box-shadow: 2px 4px 5px rgba(55, 55, 55, 0.15);
+}
