@@ -3,7 +3,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      gridTemplateColumns: { 1: "repeat( auto-fit, minmax(250px, 1fr) )" },
+      gridTemplateColumns: {
+        1: "repeat( auto-fit, minmax(250px, 1fr) )",
+        2: "repeat( auto-fit,180px )",
+        3: "repeat( auto-fit,300px )",
+      },
     },
     fontFamily: {
       poppins: "Poppins",
@@ -27,6 +31,7 @@ export default {
         300: "#717675",
       },
       cream: "#FFFBEB",
+      light: "#F5F5F5",
     },
   },
   plugins: [],
