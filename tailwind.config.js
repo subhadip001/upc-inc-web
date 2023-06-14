@@ -2,7 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: { 1: "repeat( auto-fit, minmax(250px, 1fr) )" },
+    },
     fontFamily: {
       poppins: "Poppins",
       lato: "Lato",
@@ -22,7 +24,9 @@ export default {
       grey: {
         100: "#767C7B",
         200: "#5E6261",
+        300: "#717675",
       },
+      cream: "#FFFBEB",
     },
   },
   plugins: [],
