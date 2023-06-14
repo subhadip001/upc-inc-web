@@ -1,0 +1,25 @@
+.services-sec{
+    @apply flex flex-col items-center py-9 bg-cream w-screen;
+}
+.services-sec h1{
+    @apply text-4xl text-blue-300 font-semibold mb-8;
+}
+.service-sub-sec{
+    @apply w-10/12; 
+}
+.service-sub-sec h2{
+    @apply text-[32px] font-medium text-blue-300 mb-5;
+}
+.card-grid{
+    @apply pb-5 grid grid-cols-1 gap-x-5;
+}
+.service-card{
+    @apply bg-white py-10 px-5 rounded-[18px] mb-5 ;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+}
+.service-card h4{
+    @apply text-xl font-semibold mb-2 text-blue-300;
+}
+.service-card p{
+    @apply text-sm font-normal text-grey-300 max-w-[80%];
+}
