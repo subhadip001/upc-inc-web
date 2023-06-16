@@ -7,6 +7,7 @@ export default {
         1: "repeat( auto-fit, minmax(250px, 1fr) )",
         2: "repeat( auto-fit,180px )",
         3: "repeat( auto-fit,300px )",
+        4: "repeat( auto-fit,350px )",
       },
     },
     fontFamily: {
@@ -20,6 +21,7 @@ export default {
         200: "#195ABD",
         300: "#233568",
         400: "#5FA9E0",
+        500: "#C3E5FF",
       },
       black: "#000000",
       white: "#FFFFFF",
