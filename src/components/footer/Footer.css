@@ -1,0 +1,21 @@
+.footer-sec{
+    @apply bg-blue-500 py-16 grid grid-cols-4 w-screen  justify-center;
+}
+.footer-sub-sec{
+    @apply flex flex-col items-start ml-10;
+}
+.sm-logos{
+    @apply flex  justify-between;
+}
+.sm-logos svg{
+    @apply m-3 text-grey-100;
+}
+.sm-logos svg :hover{
+    @apply m-3 text-black;
+}
+.footer-sub-sec h1{
+    @apply text-black font-medium text-2xl mb-4;
+}
+.footer-sub-sec p{
+    @apply text-grey-100 text-xl font-medium mb-3;
+}
