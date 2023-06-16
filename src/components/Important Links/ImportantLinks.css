@@ -8,10 +8,7 @@
     @apply min-w-[180px] mb-5 py-2 text-xl text-grey-300 border border-grey-300 rounded-[20px] font-medium;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 }
-/* .Imp-link:hover{
-    @apply min-w-[180px] py-2 text-xl bg-blue-200 text-white rounded-[20px] font-medium;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-} */
+
 .Imp-link-clicked{
     @apply min-w-[180px] mb-5 py-2 text-xl bg-blue-200 text-white rounded-[20px] font-medium;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);

@@ -12,12 +12,14 @@ export default {
     fontFamily: {
       poppins: "Poppins",
       lato: "Lato",
+      playfair: "Playfair Display",
     },
     colors: {
       blue: {
         100: "#0044CB",
         200: "#195ABD",
         300: "#233568",
+        400: "#5FA9E0",
       },
       black: "#000000",
       white: "#FFFFFF",
@@ -28,10 +30,15 @@ export default {
       grey: {
         100: "#767C7B",
         200: "#5E6261",
+
         300: "#717675",
       },
       cream: "#FFFBEB",
       light: "#F5F5F5",
+      yellow: {
+        400: "#FF794B",
+      },
+      txtBlack: "#091815",
     },
   },
   plugins: [],

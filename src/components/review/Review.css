@@ -1,0 +1,30 @@
+.review-sec{
+    @apply bg-white py-10 flex flex-col items-center;
+}
+.review-sec h1{
+    @apply text-4xl text-blue-300 font-semibold mb-12;
+}
+.rating{
+    @apply flex items-center mb-10;
+}
+.review-txt{
+    @apply flex justify-between w-6/12 mb-5;
+}
+.review-txt p{
+    @apply text-txtBlack text-base font-normal w-9/12 text-center mb-5 font-playfair leading-5;
+}
+.review-txt img{
+    @apply w-14 h-10 ;
+}
+.review-sec p{
+    @apply mb-7 text-txtBlack text-base font-normal ;
+}
+.carousel-cont{
+    @apply flex justify-between mb-10; 
+}
+.carousel-dot{
+    @apply rounded-[100%] bg-blue-400 w-4 h-4 mx-1 my-1; 
+}
+.carousel-dot-clicked{
+    @apply rounded-[100%] bg-blue-200 w-5 h-5 mx-1 my-px;
+}
