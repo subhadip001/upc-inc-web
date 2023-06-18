@@ -8,13 +8,13 @@
     @apply  py-14  w-1/3;
 }
 .hero-sec-info h1{
-    @apply text-[52px] font-semibold text-blue-300 ;
+    @apply text-[3.25rem] font-semibold text-blue-300 ;
 }
 .hero-sec-info p{
     @apply text-grey-100 mt-6;
 }
 .hero-sec-info button{
-    @apply text-white mt-8 text-[20px] font-semibold bg-blue-200 rounded-lg px-9 py-4 font-poppins cursor-pointer;
+    @apply text-white mt-8 text-xl font-semibold bg-blue-200 rounded-lg px-9 py-4 font-poppins cursor-pointer;
 }
 .hero-img-cont{
     @apply max-w-[50%] px-6;
