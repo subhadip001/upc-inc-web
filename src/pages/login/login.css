@@ -21,7 +21,7 @@
  @apply text-grey-200 text-sm font-medium text-center mt-2;
 }
 .login-form button{
-     @apply text-white mt-5 mb-8 text-xl font-semibold bg-blue-200 rounded-lg py-3 font-poppins cursor-pointer; 
+     @apply text-white mt-5 mb-8 text-xl font-medium bg-blue-200 rounded-lg py-3 font-poppins cursor-pointer; 
 }
 .login-form p{
     @apply mb-48 text-grey-200 text-sm font-medium text-center;
