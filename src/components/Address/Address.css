@@ -1,0 +1,42 @@
+.address-sec{
+    @apply w-8/12 ;
+}
+.pres-address-sec{
+    @apply w-full mb-10;
+}
+.pres-address-sec h2{
+    @apply text-blue-200 text-4xl font-semibold mb-7;
+}
+.input-box-cont {
+    @apply flex justify-between w-full;
+}
+
+.input-box-cont>.input-box {
+    @apply w-2/5;
+}
+
+.input-box {
+    @apply flex flex-col text-left;
+}
+
+.input-box label {
+    @apply text-grey-200 font-medium text-xl mb-2;
+}
+
+.input-box input {
+    @apply block box-border mb-3 h-14 rounded-[0.625rem] text-grey-200 font-normal text-base pl-5 mb-5;
+    box-shadow: 2px 4px 6px rgba(109, 109, 109, 0.15);
+}
+.perm-address-sec {
+    @apply w-full mb-10 text-grey-200 font-medium text-xl mb-2;
+}
+
+.perm-address-sec h2 {
+    @apply text-blue-200 text-4xl font-semibold mb-7;
+}
+.radio-cont{
+    @apply flex items-center mb-6; 
+}
+#radio{
+    @apply w-[1.65rem] h-[1.65rem] mr-3;
+} 

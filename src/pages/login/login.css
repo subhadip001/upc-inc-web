@@ -1,0 +1,31 @@
+.login-sec{
+    @apply bg-light py-10 flex flex-col items-center;
+}
+.login-sec h1{
+    @apply text-4xl text-blue-300 font-semibold mb-4;
+}
+.login-sec h4{
+    @apply font-normal text-blue-300 text-xl mb-20;
+}
+.login-form{
+    @apply flex flex-col w-2/5;
+}
+.login-form label{
+    @apply block text-blue-300 font-medium text-xl mb-2;
+}
+.login-form input{
+    @apply block box-border mb-3 h-14;
+    box-shadow: 2px 4px 6px rgba(109, 109, 109, 0.15);
+}
+.login-form a{
+ @apply text-grey-200 text-sm font-medium text-center mt-2;
+}
+.login-form button{
+     @apply text-white mt-5 mb-8 text-xl font-medium bg-blue-200 rounded-lg py-3 font-poppins cursor-pointer; 
+}
+.login-form p{
+    @apply mb-48 text-grey-200 text-sm font-medium text-center;
+}
+.login-form p a{
+    @apply text-blue-200 ;
+}

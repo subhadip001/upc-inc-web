@@ -36,7 +36,7 @@ export default {
         300: "#717675",
       },
       cream: "#FFFBEB",
-      light: "#F5F5F5",
+      light: "#F2FDFF",
       yellow: {
         400: "#FF794B",
       },
