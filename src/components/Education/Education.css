@@ -1,0 +1,17 @@
+.ed-sec{
+    @apply flex flex-col items-center mb-16;
+}
+.ed-sec h2 {
+    @apply text-blue-200 text-4xl font-semibold mt-9 mb-10;
+}
+
+.ed-detail-cont{
+    @apply grid gap-12 grid-cols-5;
+}
+.ed-detail-cont p{
+    @apply text-grey-200 font-medium text-xl mb-2;
+}
+.ed-detail-cont input{
+    @apply block border border-[#CBCCCC] box-border mb-3 h-14 rounded-[0.625rem] text-grey-200 font-normal text-base pl-5 mb-5;
+    box-shadow: 2px 4px 6px rgba(109, 109, 109, 0.15);
+}
