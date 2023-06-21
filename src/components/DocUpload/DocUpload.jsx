@@ -11,6 +11,7 @@ const DocUpload = () => {
           onClick={() => document.querySelector("#profile-pic-file").click()}
         >
           <input type="file" id="profile-pic-file" hidden />
+          <img src="profile.png" alt="user profile" />
           <h4>Upload your Picture</h4>
           <p>Less than 200kb</p>
         </div>
@@ -19,22 +20,25 @@ const DocUpload = () => {
           onClick={() => document.querySelector("#sign-file").click()}
         >
           <input type="file" id="sign-file" hidden />
+          <img src="doc1.png" alt="document1" />
           <h4>Upload your Signature</h4>
           <p>Less than 50kb</p>
         </div>
         <div
           className="upload-file-card"
-          onClick={() => document.querySelector("#10mk-file").click()}
+          onClick={() => document.querySelector("#mk10-file").click()}
         >
-          <input type="file" id="10mk-file" hidden />
+          <input type="file" id="mk10-file" hidden />
+          <img src="doc1.png" alt="document1" />
           <h4>Upload 10th Marksheet</h4>
           <p>Less than 50kb</p>
         </div>
         <div
           className="upload-file-card"
-          onClick={() => document.querySelector("#12mk-file").click()}
+          onClick={() => document.querySelector("#mk12-file").click()}
         >
-          <input type="file" id="12mk-file" hidden />
+          <input type="file" id="mk12-file" hidden />
+          <img src="doc1.png" alt="document1" />
           <h4>Upload 12th Marksheet</h4>
           <p>Less than 50kb</p>
         </div>
@@ -43,6 +47,7 @@ const DocUpload = () => {
           onClick={() => document.querySelector("#aadhar-file").click()}
         >
           <input type="file" id="aadhar-file" hidden />
+          <img src="doc2.png" alt="document2" />
           <h4>Upload Aadhar Card</h4>
           <p>Less than 200kb</p>
         </div>
@@ -51,6 +56,7 @@ const DocUpload = () => {
           onClick={() => document.querySelector("#pan-file").click()}
         >
           <input type="file" id="pan-file" hidden />
+          <img src="doc2.png" alt="document2" />
           <h4>Upload Pan Card</h4>
           <p>Less than 50kb</p>
         </div>
@@ -59,6 +65,7 @@ const DocUpload = () => {
           onClick={() => document.querySelector("#cast-file").click()}
         >
           <input type="file" id="cast-file" hidden />
+          <img src="doc2.png" alt="document2" />
           <h4>Upload Cast Certificate</h4>
           <p>Less than 50kb</p>
         </div>

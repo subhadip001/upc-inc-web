@@ -3,6 +3,7 @@ import "./Register.css";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";
 import Address from "../Address/Address";
 import Education from "../Education/Education";
+import DocUpload from "../DocUpload/DocUpload";
 
 const Register = () => {
   return (
@@ -12,6 +13,7 @@ const Register = () => {
       <PersonalDetails />
       <Address />
       <Education />
+      <DocUpload />
       <div className="btn-cont">
         <button>Submit</button>
         <button id="prev-btn">Preview Profile</button>
