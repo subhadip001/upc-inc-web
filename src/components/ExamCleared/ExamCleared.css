@@ -1,0 +1,35 @@
+.examcleared-sec{
+    @apply flex flex-col w-7/12;
+}
+.exam-head{
+    @apply flex justify-between mb-10;
+}
+.exam-head h2{
+    @apply text-blue-200 text-4xl font-semibold ;
+}
+.exam-head button{
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}
+.exam-details{
+    @apply flex w-full flex-col;
+}
+.exam-detail-row{
+    @apply flex justify-between;
+
+}
+.exam-detail-row p{
+    @apply w-[30%] text-grey-200 font-semibold text-xl mb-5;
+}
+.exam-detail-row button {
+    @apply w-[30%] h-14 text-white text-base bg-blue-200 rounded-lg  font-poppins cursor-pointer;
+
+}
+.exam-name{
+    @apply w-[30%] block box-border mb-3 h-14 rounded-[0.625rem] text-grey-200 font-normal text-base pl-5 mb-5;
+    box-shadow: 2px 4px 6px rgba(109, 109, 109, 0.15);
+
+}
+.exam-level{
+    @apply w-[30%] block box-border mb-3 h-14 rounded-[0.625rem] text-grey-200 font-normal text-base px-10 mb-5;
+    box-shadow: 2px 4px 6px rgba(109, 109, 109, 0.15);
+}
