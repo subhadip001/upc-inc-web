@@ -1,0 +1,22 @@
+.doc-sec{
+    @apply flex flex-col items-center pb-20 bg-white w-screen;
+}
+.doc-sec h2{
+    @apply text-blue-200 text-4xl font-semibold mt-9 mb-10;
+}
+.doc-grid-cont{
+    @apply grid gap-5 grid-cols-1 w-9/12;
+}
+.upload-file-card{
+    @apply flex flex-col items-center justify-center bg-light h-60 rounded-[0.563rem];
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+}
+.upload-file-card h4{
+    @apply text-base text-grey-200 font-medium mb-2;
+}
+.upload-file-card img{
+    @apply mb-9;
+}
+.upload-file-card p{
+    @apply text-grey-200 font-normal text-xs;
+}

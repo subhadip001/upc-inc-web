@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import UpdatePage from "./pages/UpdatePage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,8 +14,9 @@ function App() {
   return (
     <>
       {/* <HomePage />
-      <LoginPage /> */}
-      <RegisterPage />
+      <LoginPage />
+      <RegisterPage /> */}
+      <UpdatePage />
     </>
   );
 }

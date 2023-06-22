@@ -8,6 +8,7 @@ export default {
         2: "repeat( auto-fit,180px )",
         3: "repeat( auto-fit,300px )",
         4: "repeat( auto-fit,350px )",
+        5: "repeat( 8,110px )",
       },
     },
     fontFamily: {
