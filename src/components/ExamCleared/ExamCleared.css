@@ -1,5 +1,5 @@
 .examcleared-sec{
-    @apply flex flex-col w-7/12;
+    @apply flex flex-col w-7/12 mb-10;
 }
 .exam-head{
     @apply flex justify-between mb-10;

@@ -16,3 +16,6 @@
 #prev-btn{
     @apply text-blue-200 border border-blue-200 bg-light;
 }
+.pass-cont{
+    @apply w-7/12 mt-20;
+}

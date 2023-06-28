@@ -1,0 +1,18 @@
+.congrats-page{
+    @apply flex flex-col items-center justify-center w-screen h-screen;
+}
+.congrats-page h1{
+    @apply font-bold text-5xl text-blue-200 mb-10;
+}
+.congrats-page h3{
+    @apply text-2xl text-grey-200 font-normal mb-14;
+}
+.congrats-page h4{
+    @apply text-3xl text-grey-200 font-medium mb-20;
+}
+.congrats-page button{
+    @apply text-white text-xl font-medium bg-blue-200 rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}
+#upc-no{
+    @apply font-medium text-black;
+}

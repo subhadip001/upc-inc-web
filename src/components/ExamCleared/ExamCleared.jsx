@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./ExamCleared.css";
 import ExamRow from "./ExamRow";
 
@@ -9,10 +9,10 @@ const ExamCleared = () => {
     <ExamRow id="exam-proof3" />,
   ]);
 
-  let examsNO = 3;
+  let examsNO = useRef(3);
   const addExam = () => {
-    examsNO += 1;
-    let id = "exam-proof" + examsNO;
+    examsNO.current += 1;
+    let id = "exam-proof" + examsNO.current;
 
     setExams(exams.concat(<ExamRow id={id} />));
   };

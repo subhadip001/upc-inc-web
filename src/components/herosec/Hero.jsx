@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Hero.css";
+import { UserContext } from "../../App";
 
-const Hero = () => {
+const Hero = ({ nav, isLoggedIn }) => {
+  const user = useContext(UserContext);
+  const handleGetUPC = () => {
+    if (isLoggedIn) {
+      alert("you already have upc : " + user.upc_id);
+    } else {
+      nav("/register");
+    }
+  };
   return (
     <div className="hero-sec">
       <div className="hero-sec-info">
@@ -11,7 +20,7 @@ const Hero = () => {
           Ace <em className="not-italic text-blue-100">exams</em> with our
           updates
         </p>
-        <button>Get UPC Code</button>
+        <button onClick={handleGetUPC}>Get UPC Code</button>
         <p className="text-[14px] w-4/5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua

@@ -7,3 +7,6 @@
 .update-main h4{
     @apply font-normal text-blue-300 text-xl mb-10;
 }
+.submit-update{
+    @apply text-white text-xl font-medium bg-blue-200 rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}

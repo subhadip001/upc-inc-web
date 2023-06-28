@@ -12,26 +12,27 @@ const PersonalDetails = () => {
           name="name"
           id="name"
           placeholder="Avoid using Mr , Mrs and other tiles "
+          required
         />
       </div>
       <div className="input-box">
         <label>Email Address :</label>
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" required />
       </div>
       <div className="input-box-cont">
         <div className="input-box">
           <label>Contact Number :</label>
-          <input type="number" name="contact" id="contact" />
+          <input type="number" name="contact" id="contact" required />
         </div>
         <div className="input-box">
           <label>Alternative Contact Number :</label>
-          <input type="number" name="alt-contact" id="alt-contact" />
+          <input type="number" name="alt-contact" id="alt-contact" required />
         </div>
       </div>
       <div className="input-box-cont">
         <div className="input-box">
           <label>Gender :</label>
-          <select id="gender">
+          <select id="gender" required>
             <option value="null">--Select Gender--</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -40,7 +41,13 @@ const PersonalDetails = () => {
         </div>
         <div className="input-box">
           <label>Date Of Birth :</label>
-          <input type="date" name="dob" id="dob" placeholder="--MM/DD/YYYY--" />
+          <input
+            type="date"
+            name="dob"
+            id="dob"
+            placeholder="--MM/DD/YYYY--"
+            required
+          />
         </div>
       </div>
       <div className="input-box-cont">
@@ -51,6 +58,7 @@ const PersonalDetails = () => {
             name="fname"
             id="fname"
             placeholder="Avoid using any tiles "
+            required
           />
         </div>
         <div className="input-box">
@@ -60,35 +68,36 @@ const PersonalDetails = () => {
             name="mname"
             id="mname"
             placeholder="Avoid using any tiles "
+            required
           />
         </div>
       </div>
       <div className="input-box">
         <label>Father’s Email Address :</label>
-        <input type="email" name="femail" id="femail" />
+        <input type="email" name="femail" id="femail" required />
       </div>
       <div className="input-box-cont">
         <div className="input-box">
           <label>Category :</label>
-          <select id="category">
+          <select id="category" required>
             <option value="null">--Select Category--</option>
             <option value="gen">General</option>
             <option value="sc">SC</option>
             <option value="st">ST</option>
             <option value="obc">OBC</option>
             <option value="ewc">EWC</option>
-            <option value="min">Other minorities</option>
+            <option value="other-min">Other minorities</option>
           </select>
         </div>
         <div className="input-box">
           <label>Nationality :</label>
-          <input type="text" name="nation" id="nation" />
+          <input type="text" name="nation" id="nation" required />
         </div>
       </div>
       <div className="input-box-cont">
         <div className="input-box">
           <label>PwD :</label>
-          <select id="pwd">
+          <select id="pwd" required>
             <option value="null">--Select Yes/No--</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -96,7 +105,7 @@ const PersonalDetails = () => {
         </div>
         <div className="input-box">
           <label>Marital Status :</label>
-          <select id="marital">
+          <select id="marital" required>
             <option value="unmarried">Unmarried</option>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
@@ -107,7 +116,7 @@ const PersonalDetails = () => {
       <div className="input-box-cont">
         <div className="input-box">
           <label>ID Type :</label>
-          <select id="id-type">
+          <select id="id-type" required>
             <option value="pan">Pan Card</option>
             <option value="aadhar">Aadhar Card</option>
             <option value="passport">Passport</option>
@@ -121,6 +130,7 @@ const PersonalDetails = () => {
             name="id-num"
             id="id-num"
             placeholder="Avoid using Mr , Mrs and other tiles "
+            required
           />
         </div>
       </div>

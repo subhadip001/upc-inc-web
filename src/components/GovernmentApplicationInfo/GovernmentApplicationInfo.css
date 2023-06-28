@@ -1,0 +1,23 @@
+.application-sec {
+    @apply flex flex-col w-7/12;
+}
+
+.add-info{
+    @apply flex flex-col w-full mb-10;
+}
+.add-info h2{
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+}
+.applied-for{
+    @apply flex flex-col w-full mb-10;
+}
+.applied-for h2{
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+}
+.emp-status{
+    @apply flex flex-col w-full mb-10;
+
+}
+.emp-status h2{
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+}
