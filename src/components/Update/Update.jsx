@@ -284,7 +284,7 @@ const Update = ({ setUser, nav }) => {
     user.reference = reference;
     try {
       await axios
-        .patch("http://localhost:9000/upc/api/v1", { user: user })
+        .patch("http://localhost:9000/upc/api/v1/update", { user: user })
         .then((res) => {
           console.log(res);
           alert(res.data.message);

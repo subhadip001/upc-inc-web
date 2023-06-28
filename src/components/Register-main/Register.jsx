@@ -22,7 +22,7 @@ const Register = ({ nav, setUser }) => {
 
       async function isDuplicate(id) {
         await axios
-          .get("http://localhost:9000/upc/api/v1", {
+          .get("http://localhost:9000/upc/api/v1/fetch", {
             params: { upc_id: id },
           })
           .then((res) => {
@@ -204,7 +204,7 @@ const Register = ({ nav, setUser }) => {
       };
       try {
         await axios
-          .post("http://localhost:9000/upc/api/v1", { user: newUser })
+          .post("http://localhost:9000/upc/api/v1/register", { user: newUser })
           .then((res) => {
             console.log(res);
             alert("User added successfully");
