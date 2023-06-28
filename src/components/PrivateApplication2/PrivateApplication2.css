@@ -1,0 +1,56 @@
+.pv2-sec {
+    @apply flex flex-col w-7/12;
+}
+.achievement-sec {
+    @apply mb-10;
+}
+
+.achieve-head {
+    @apply flex justify-between mb-10;
+}
+
+.achieve-head h2 {
+    @apply text-blue-200 text-4xl font-semibold;
+}
+
+.achieve-head button {
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}
+.doc-btn{
+    @apply  h-14 text-white text-base bg-blue-200 rounded-lg font-poppins cursor-pointer w-[100%];
+}
+.skill-sec {
+    @apply mb-10;
+}
+.skill-cont{
+
+    @apply w-full grid grid-cols-6 gap-x-[20%];
+}
+
+.skill-head {
+    @apply flex justify-between mb-10;
+}
+
+.skill-head h2 {
+    @apply text-blue-200 text-4xl font-semibold;
+}
+
+.skill-head button {
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}
+
+.extra-cur-sec {
+    @apply mb-10;
+}
+
+.cur-head {
+    @apply flex justify-between mb-10;
+}
+
+.cur-head h2 {
+    @apply text-blue-200 text-4xl font-semibold;
+}
+
+.cur-head button {
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}

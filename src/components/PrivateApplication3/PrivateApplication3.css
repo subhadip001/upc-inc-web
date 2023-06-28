@@ -1,0 +1,15 @@
+.pv3-sec{
+    @apply flex flex-col w-7/12;
+}
+.publication-sec{
+    @apply flex flex-col w-full mb-10;
+}
+.publication-sec h2{
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+}
+.reference-sec{
+    @apply flex flex-col w-full mb-10;
+}
+.reference-sec h2{
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+}

@@ -1,0 +1,52 @@
+.pv1-sec{
+    @apply flex flex-col w-7/12;
+}
+.area-of-interest{
+    @apply flex flex-col w-full mb-10;
+}
+.area-of-interest h2{
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+}
+.internship-sec{
+    @apply mb-10;
+}
+.intern-head {
+    @apply flex justify-between mb-10;
+}
+
+.intern-head h2 {
+    @apply text-blue-200 text-4xl font-semibold;
+}
+
+.intern-head button {
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}
+
+.work-exp-sec{
+    @apply mb-10;
+}
+.work-head {
+    @apply flex justify-between mb-10;
+}
+
+.work-head h2 {
+    @apply text-blue-200 text-4xl font-semibold;
+}
+
+.work-head button {
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}
+.project-sec{
+    @apply mb-10;
+}
+.project-head {
+    @apply flex justify-between mb-10;
+}
+
+.project-head h2 {
+    @apply text-blue-200 text-4xl font-semibold;
+}
+
+.project-head button {
+    @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}

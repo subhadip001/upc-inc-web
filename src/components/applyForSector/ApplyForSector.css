@@ -1,0 +1,27 @@
+
+
+.apply-for {
+    @apply flex flex-col w-7/12;
+}
+
+.apply-for h2 {
+    @apply text-blue-200 text-4xl font-semibold mb-10;
+
+}
+
+.radio-cont {
+    @apply flex justify-between mb-10;
+}
+
+.radio-choice {
+    @apply flex items-center mb-6;
+}
+
+.radio-choice input {
+    @apply w-[1.65rem] h-[1.65rem] mr-3;
+
+}
+
+.radio-choice label {
+    @apply text-blue-300 font-medium text-xl;
+}

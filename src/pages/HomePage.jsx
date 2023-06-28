@@ -6,12 +6,14 @@ import Services from "../components/Our Services/Services";
 import ImportantLinks from "../components/Important Links/ImportantLinks";
 import Review from "../components/review/Review";
 import Footer from "../components/footer/Footer";
+import { useNavigate } from "react-router-dom";
 
-const HomePage = () => {
+const HomePage = ({ isLoggedIn }) => {
+  const nav = useNavigate();
   return (
     <div>
-      <Navbar />
-      <Hero />
+      <Navbar nav={nav} isLoggedIn={isLoggedIn} />
+      <Hero nav={nav} isLoggedIn={isLoggedIn} />
       <About />
       <Services />
       <ImportantLinks />
