@@ -15,7 +15,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
 
     let userRes = null;
     await axios
-      .get("http://localhost:9000/upc/api/v1", {
+      .get("http://localhost:9000/upc/api/v1/fetch", {
         params: { upc_id: upc.value },
       })
       .then((res) => {
