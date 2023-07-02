@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";
 import Address from "../Address/Address";
@@ -10,6 +10,10 @@ import axios from "axios";
 import { parse, stringify, toJSON, fromJSON } from "flatted";
 
 const Register = ({ nav, setUser }) => {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    console.log(progress);
+  }, [progress]);
   const handleRegister = async () => {
     const pass = document.getElementById("pass").value;
     const pass2 = document.getElementById("con-pass").value;
@@ -21,6 +25,7 @@ const Register = ({ nav, setUser }) => {
       let upcId = "";
 
       async function isDuplicate(id) {
+        alert("checking duplicacy");
         await axios
           .get("http://localhost:9000/upc/api/v1/fetch", {
             params: { upc_id: id },
@@ -34,12 +39,15 @@ const Register = ({ nav, setUser }) => {
       }
 
       async function generateUPC() {
+        alert("genearting pass");
         let duplicate = true;
         while (duplicate) {
           upcNum = Math.floor(100000000 + Math.random() * 900000000);
           upcId = "UPC" + upcNum;
           console.log(upcId);
+
           duplicate = await isDuplicate(upcId);
+          alert(duplicate);
         }
       }
       await generateUPC();
@@ -72,12 +80,14 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[0].url = new URL(await getDownloadURL(imgRef));
+        setProgress(progress + 100 / 7);
       }
       if (userSign.files[0] != null) {
         const imgRef = ref(storage, `userSign/${upcId}`);
         await uploadBytes(imgRef, userSign.files[0]);
 
         console.log(await getDownloadURL(imgRef));
+
         ImpDocs[1].url = new URL(await getDownloadURL(imgRef));
       }
       if (tenthMS.files[0] != null) {
@@ -202,9 +212,15 @@ const Register = ({ nav, setUser }) => {
         publication: null,
         reference: null,
       };
+
       try {
+        alert("trying to create");
         await axios
-          .post("http://localhost:9000/upc/api/v1/register", { user: newUser })
+          .post(
+            "http://localhost:9000/upc/api/v1/register",
+            { user: newUser },
+            { withCredentials: true }
+          )
           .then((res) => {
             console.log(res);
             alert("User added successfully");

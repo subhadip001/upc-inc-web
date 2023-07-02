@@ -20,7 +20,13 @@ const Hero = ({ nav, isLoggedIn }) => {
           Ace <em className="not-italic text-blue-100">exams</em> with our
           updates
         </p>
-        <button onClick={handleGetUPC}>Get UPC Code</button>
+        {isLoggedIn === false && (
+          <button onClick={handleGetUPC}>Get UPC Code</button>
+        )}
+        {isLoggedIn === true && (
+          <button onClick={handleGetUPC}>Know your UPC</button>
+        )}
+
         <p className="text-[14px] w-4/5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua

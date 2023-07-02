@@ -13,8 +13,10 @@
     "axios": "^1.4.0",
     "firebase": "^9.23.0",
     "flatted": "^3.2.7",
+    "jsonwebtoken": "^9.0.0",
     "passport-azure-ad": "^4.3.5",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.0"
   },

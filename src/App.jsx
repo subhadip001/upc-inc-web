@@ -20,10 +20,21 @@ function App() {
     <UserContext.Provider value={user}>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} />} />
+          <Route
+            path="/"
+            element={
+              <HomePage
+                isLoggedIn={isLoggedIn}
+                setUser={setUser}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
           <Route
             path="/register"
-            element={<RegisterPage setUser={setUser} />}
+            element={
+              <RegisterPage setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
+            }
           />
           <Route
             path="/login"
@@ -31,7 +42,12 @@ function App() {
               <LoginPage setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
             }
           />
-          <Route path="/profile" element={<UpdatePage setUser={setUser} />} />
+          <Route
+            path="/profile"
+            element={
+              <UpdatePage setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
+            }
+          />
           <Route path="/congrats" element={<Congratulations />} />
         </Routes>
       </Router>
