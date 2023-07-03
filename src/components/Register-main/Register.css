@@ -19,3 +19,9 @@
 .pass-cont{
     @apply w-7/12 mt-20;
 }
+.progress-bar{
+    @apply w-7/12 h-6 bg-grey-100 text-center;
+}
+.progress{
+    @apply  bg-blue-400 text-white h-6;
+}

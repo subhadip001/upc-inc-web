@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";
 import Address from "../Address/Address";
@@ -7,9 +7,54 @@ import DocUpload from "../DocUpload/DocUpload";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
-import { parse, stringify, toJSON, fromJSON } from "flatted";
+import { useRef } from "react";
+// import nodemailer from "nodemailer";
 
 const Register = ({ nav, setUser }) => {
+  const progress = useRef(0);
+  const [x, setX] = useState(0);
+  const [totalFiles, setTotalFiles] = useState(0);
+  const [verified, setVerified] = useState(false);
+  useEffect(() => {
+    if (progress.current === 0) {
+      document.getElementsByClassName("progress-bar")[0].style.display = "none";
+    }
+    if (progress.current >= 1) {
+      // alert(progress);
+      document.getElementsByClassName("progress-bar")[0].style.display =
+        "block";
+    }
+    document.getElementsByClassName("progress")[0].style.width = `${
+      (progress.current / totalFiles) * 100
+    }%`;
+  }, [progress.current]);
+
+  let verificationCode = null;
+  const verify = () => {
+    // alert(verificationCode);
+    let code = document.getElementById("v-code").value;
+    // alert(code);
+    if (code == verificationCode) {
+      alert("email verified");
+      setVerified(true);
+    } else {
+      alert("wrong verification code");
+    }
+  };
+  const sendVerificationCode = async () => {
+    verificationCode = Math.floor(100000 + Math.random() * 900000);
+    // alert(verificationCode);
+    await axios
+      .post("http://localhost:9000/upc/api/v1/verify", {
+        email: document.getElementById("email").value,
+        code: verificationCode,
+      })
+      .then((res) => {
+        console.log(res);
+        alert("email is sent please enter the verification code!");
+      });
+  };
+
   const handleRegister = async () => {
     const pass = document.getElementById("pass").value;
     const pass2 = document.getElementById("con-pass").value;
@@ -17,10 +62,34 @@ const Register = ({ nav, setUser }) => {
       alert("password and confirm password must be same!!!");
     } else {
       //upc generation
+      if (!verified) {
+        alert("please verify your email first");
+        return;
+      }
+
+      const name = document.getElementById("name").value;
+
+      const contactNo = document.getElementById("contact").value;
+      const gender = document.getElementById("gender").value;
+      const DOB = document.getElementById("dob").value;
+      if (
+        name === "" ||
+        contactNo === null ||
+        gender === null ||
+        DOB === "" ||
+        pass === ""
+      ) {
+        alert(
+          "you cannot leave name, contact number, gender,DOB or pasword empty!"
+        );
+        return;
+      }
+
       let upcNum = 0;
       let upcId = "";
 
       async function isDuplicate(id) {
+        // alert("checking duplicacy");
         await axios
           .get("http://localhost:9000/upc/api/v1/fetch", {
             params: { upc_id: id },
@@ -34,11 +103,13 @@ const Register = ({ nav, setUser }) => {
       }
 
       async function generateUPC() {
+        // alert("genearting pass");
         let duplicate = true;
         while (duplicate) {
           upcNum = Math.floor(100000000 + Math.random() * 900000000);
           upcId = "UPC" + upcNum;
           console.log(upcId);
+
           duplicate = await isDuplicate(upcId);
         }
       }
@@ -46,7 +117,7 @@ const Register = ({ nav, setUser }) => {
 
       //document upload
 
-      alert("please wait while the files are being uploaded!");
+      // alert("please wait while the files are being uploaded!");
 
       let ImpDocs = [
         { name: "User Image", url: null },
@@ -72,13 +143,19 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[0].url = new URL(await getDownloadURL(imgRef));
+
+        progress.current += 1;
+        setX(Math.random());
       }
       if (userSign.files[0] != null) {
         const imgRef = ref(storage, `userSign/${upcId}`);
         await uploadBytes(imgRef, userSign.files[0]);
 
         console.log(await getDownloadURL(imgRef));
+
         ImpDocs[1].url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
       if (tenthMS.files[0] != null) {
         const imgRef = ref(storage, `tenthMS/${upcId}`);
@@ -86,6 +163,8 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[2].url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
       if (twelthMS.files[0] != null) {
         const imgRef = ref(storage, `twelthMS/${upcId}`);
@@ -93,6 +172,8 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[3].url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
       if (aadhar.files[0] != null) {
         const imgRef = ref(storage, `aadhar/${upcId}`);
@@ -100,6 +181,8 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[4].url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
       if (pan.files[0] != null) {
         const imgRef = ref(storage, `pan/${upcId}`);
@@ -107,6 +190,8 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[5].url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
       if (casteCert.files[0] != null) {
         const imgRef = ref(storage, `casteCert/${upcId}`);
@@ -114,6 +199,8 @@ const Register = ({ nav, setUser }) => {
 
         console.log(await getDownloadURL(imgRef));
         ImpDocs[6].url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
 
       //setting education details
@@ -202,9 +289,15 @@ const Register = ({ nav, setUser }) => {
         publication: null,
         reference: null,
       };
+
       try {
+        // alert("trying to create");
         await axios
-          .post("http://localhost:9000/upc/api/v1/register", { user: newUser })
+          .post(
+            "http://localhost:9000/upc/api/v1/register",
+            { user: newUser },
+            { withCredentials: true }
+          )
           .then((res) => {
             console.log(res);
             alert("User added successfully");
@@ -221,10 +314,13 @@ const Register = ({ nav, setUser }) => {
     <div className="register-main">
       <h1>Register your profile </h1>
       <h4>Stay updated with latest exams and job opportunities</h4>
-      <PersonalDetails />
+      <PersonalDetails
+        sendVerificationCode={sendVerificationCode}
+        verify={verify}
+      />
       <Address />
       <Education />
-      <DocUpload />
+      <DocUpload setTotalFiles={setTotalFiles} totalFiles={totalFiles} />
       <div className="pass-cont">
         <div className="input-box-cont">
           <div className="input-box">
@@ -235,6 +331,11 @@ const Register = ({ nav, setUser }) => {
             <label>Confirm Password :</label>
             <input type="password" name="con-pass" id="con-pass" required />
           </div>
+        </div>
+      </div>
+      <div className="progress-bar">
+        <div className="progress">
+          Files uploaded : {progress.current}/{totalFiles}
         </div>
       </div>
       <div className="btn-cont">

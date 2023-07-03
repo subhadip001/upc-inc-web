@@ -3,10 +3,12 @@ import "./login.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 
 const LoginPage = ({ setIsLoggedIn, setUser }) => {
   const nav = useNavigate();
+  const [cookies, setCookies, removeCookies] = useCookies();
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -14,21 +16,25 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
     const password = document.getElementById("login-pass");
 
     let userRes = null;
+    let resp = null;
     await axios
       .get("http://localhost:9000/upc/api/v1/fetch", {
-        params: { upc_id: upc.value },
+        params: { upc_id: upc.value, password: password.value },
       })
       .then((res) => {
+        resp = res.status;
         console.log(res.data);
         userRes = res.data;
       });
-    if (userRes.password === password.value) {
+    if (resp == 201) {
       setIsLoggedIn(true);
-      setUser(userRes);
+      setUser(userRes.user);
+      setCookies("jwt", userRes.token);
       console.log(userRes);
       alert("SUCCESSFULLY LOGGED IN !!!");
-      nav("/");
+      nav("/profile");
     } else {
+      console.log(resp);
       alert("WRONG upc id or password!!!");
     }
   };
@@ -43,7 +49,13 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
           <input name="upc-c" type="text" id="login-upc" required />
           <label>Password</label>
           <input name="pass" type="password" id="login-pass" required />
-          <a href="#">Forgot Password ?</a>
+          <a
+            onClick={() => {
+              nav("/reset");
+            }}
+          >
+            Forgot Password ?
+          </a>
           <br />
           <button type="submit">Login</button>
           <p>

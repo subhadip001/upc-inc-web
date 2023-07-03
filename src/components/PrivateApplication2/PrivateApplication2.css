@@ -54,3 +54,9 @@
 .cur-head button {
     @apply text-blue-200 border border-blue-200 font-medium bg-light text-xl rounded-lg py-3 w-56 font-poppins cursor-pointer;
 }
+.input-box-cont2{
+    @apply flex justify-between w-full;
+}
+.input-box-cont2>.input-box {
+    @apply w-2/5;
+}

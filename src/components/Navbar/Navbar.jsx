@@ -1,7 +1,15 @@
 import React from "react";
 import "./Navbar.css";
+import { useCookies } from "react-cookie";
 
-const Navbar = ({ nav, isLoggedIn }) => {
+const Navbar = ({ nav, isLoggedIn, setUser, setIsLoggedIn }) => {
+  const [cookies, setCookies, removeCookies] = useCookies();
+  const logOut = () => {
+    setUser({});
+    setIsLoggedIn(false);
+    removeCookies("jwt");
+    nav("/login");
+  };
   return (
     <div className="nav">
       <h1 className="logo">UPC INC</h1>
@@ -33,6 +41,11 @@ const Navbar = ({ nav, isLoggedIn }) => {
         {isLoggedIn === false && (
           <button className="btn" onClick={() => nav("/login")}>
             Log in
+          </button>
+        )}
+        {isLoggedIn === true && (
+          <button className="btn" onClick={logOut}>
+            Log Out
           </button>
         )}
       </div>

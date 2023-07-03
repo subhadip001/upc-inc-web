@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import UpdatePage from "./pages/UpdatePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Congratulations from "./components/congratulations/Congratulations";
+import Reset from "./pages/ResetPassword/Reset";
 
 export const UserContext = createContext();
 
@@ -20,10 +21,21 @@ function App() {
     <UserContext.Provider value={user}>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} />} />
+          <Route
+            path="/"
+            element={
+              <HomePage
+                isLoggedIn={isLoggedIn}
+                setUser={setUser}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
           <Route
             path="/register"
-            element={<RegisterPage setUser={setUser} />}
+            element={
+              <RegisterPage setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
+            }
           />
           <Route
             path="/login"
@@ -31,7 +43,13 @@ function App() {
               <LoginPage setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
             }
           />
-          <Route path="/profile" element={<UpdatePage setUser={setUser} />} />
+          <Route path="/reset" element={<Reset />} />
+          <Route
+            path="/profile"
+            element={
+              <UpdatePage setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
+            }
+          />
           <Route path="/congrats" element={<Congratulations />} />
         </Routes>
       </Router>

@@ -4,14 +4,14 @@ import Achievement from "./Achievement";
 import Skill from "./Skill";
 import ExtraCurr from "./ExtraCurr";
 
-const PrivateApplication2 = () => {
+const PrivateApplication2 = ({ setX, totalFiles }) => {
   let skillNO = useRef(5);
   let achieveNO = useRef(3);
   const [excurr, setExcurr] = useState([<ExtraCurr />]);
   const [achievements, setAchievements] = useState([
-    <Achievement id="achieve1" />,
-    <Achievement id="achieve2" />,
-    <Achievement id="achieve3" />,
+    <Achievement id="achieve1" setX={setX} totalFiles={totalFiles} />,
+    <Achievement id="achieve2" setX={setX} totalFiles={totalFiles} />,
+    <Achievement id="achieve3" setX={setX} totalFiles={totalFiles} />,
   ]);
   const [skills, setSkills] = useState([
     <Skill sr={1} />,
@@ -23,7 +23,11 @@ const PrivateApplication2 = () => {
   const addAchivement = () => {
     achieveNO.current += 1;
     let newId = "achieve" + achieveNO.current;
-    setAchievements(achievements.concat(<Achievement id={newId} />));
+    setAchievements(
+      achievements.concat(
+        <Achievement id={newId} setX={setX} totalFiles={totalFiles} />
+      )
+    );
   };
   const addSkill = () => {
     skillNO.current += 1;
