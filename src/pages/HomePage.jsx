@@ -36,8 +36,8 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
 
             setUser(data.user);
 
-            alert(`hello ${data.user.upc_id}`);
-            alert(user.upc_id);
+            // alert(`hello ${data.user.upc_id}`);
+            // alert(user.upc_id);
           }
         } catch (err) {
           console.log(err);

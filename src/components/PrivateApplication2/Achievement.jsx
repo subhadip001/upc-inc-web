@@ -1,8 +1,8 @@
 import React from "react";
 
-const Achievement = ({ id }) => {
+const Achievement = ({ id, setX, totalFiles }) => {
   return (
-    <div className="input-box-cont">
+    <div className="input-box-cont2">
       <div className="input-box">
         <label>Achievement :</label>
         <input type="text" className="achievement" />
@@ -12,7 +12,11 @@ const Achievement = ({ id }) => {
         <label>Verify :</label>
         <button
           className="doc-btn"
-          onClick={() => document.getElementById(id).click()}
+          onClick={() => {
+            document.getElementById(id).click();
+            totalFiles.current += 1;
+            setX(Math.random());
+          }}
         >
           --upload document--
         </button>

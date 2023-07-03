@@ -2,11 +2,23 @@ import React, { useRef, useState } from "react";
 import "./ExamCleared.css";
 import ExamRow from "./ExamRow";
 
-const ExamCleared = () => {
+const ExamCleared = ({ setTotalFiles, totalFiles }) => {
   const [exams, setExams] = useState([
-    <ExamRow id="exam-proof1" />,
-    <ExamRow id="exam-proof2" />,
-    <ExamRow id="exam-proof3" />,
+    <ExamRow
+      id="exam-proof1"
+      setTotalFiles={setTotalFiles}
+      totalFiles={totalFiles}
+    />,
+    <ExamRow
+      id="exam-proof2"
+      setTotalFiles={setTotalFiles}
+      totalFiles={totalFiles}
+    />,
+    <ExamRow
+      id="exam-proof3"
+      setTotalFiles={setTotalFiles}
+      totalFiles={totalFiles}
+    />,
   ]);
 
   let examsNO = useRef(3);
@@ -14,7 +26,15 @@ const ExamCleared = () => {
     examsNO.current += 1;
     let id = "exam-proof" + examsNO.current;
 
-    setExams(exams.concat(<ExamRow id={id} />));
+    setExams(
+      exams.concat(
+        <ExamRow
+          id={id}
+          setTotalFiles={setTotalFiles}
+          totalFiles={totalFiles}
+        />
+      )
+    );
   };
   return (
     <div className="examcleared-sec">

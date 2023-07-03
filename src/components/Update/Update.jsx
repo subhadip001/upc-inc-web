@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import "./Update.css";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -13,11 +13,26 @@ import { UserContext } from "../../App";
 import axios from "axios";
 
 const Update = ({ setUser, nav }) => {
+  const progress = useRef(0);
+  const [x, setX] = useState(0);
+  const totalFiles = useRef(0);
   const [sector, setSector] = useState("gov");
   const user = useContext(UserContext);
+  useEffect(() => {
+    if (progress.current === 0) {
+      document.getElementsByClassName("progress-bar")[0].style.display = "none";
+    }
+    if (progress.current >= 1) {
+      // alert(progress);
+      document.getElementsByClassName("progress-bar")[0].style.display =
+        "block";
+    }
+    document.getElementsByClassName("progress")[0].style.width = `${
+      (progress.current / totalFiles.current) * 100
+    }%`;
+  }, [progress.current]);
   console.log(user);
   const handleUpdate = async () => {
-    alert("please wait for a moment!");
     let examsCleared = user.examsCleared || [];
     const examNames = document.getElementsByClassName("exam-name");
     for (let i = 0; i < examNames.length; i++) {
@@ -29,6 +44,8 @@ const Update = ({ setUser, nav }) => {
 
         // console.log(await getDownloadURL(imgRef));
         proof_url = new URL(await getDownloadURL(imgRef));
+        progress.current += 1;
+        setX(Math.random());
       }
       let newExam = {
         name: examNames[i].value,
@@ -120,6 +137,8 @@ const Update = ({ setUser, nav }) => {
 
           // console.log(await getDownloadURL(imgRef));
           achieve_proof_url = new URL(await getDownloadURL(imgRef));
+          progress.current += 1;
+          setX(Math.random());
         }
         let newAchievement = {
           achievement: achievementNames[i].value,
@@ -229,6 +248,8 @@ const Update = ({ setUser, nav }) => {
 
           // console.log(await getDownloadURL(imgRef));
           achieve_proof_url = new URL(await getDownloadURL(imgRef));
+          progress.current += 1;
+          setX(Math.random());
         }
         let newAchievement = {
           achievement: achievementNames[i].value,
@@ -290,6 +311,9 @@ const Update = ({ setUser, nav }) => {
           alert(res.data.message);
 
           setUser(user);
+          progress.current = 0;
+          totalFiles.current = 0;
+          setX(Math.random());
         });
     } catch (err) {
       console.log(err);
@@ -301,17 +325,22 @@ const Update = ({ setUser, nav }) => {
     <div className="update-main">
       <h1>Update your profile </h1>
       <h4>Stay updated with latest exams and job opportunities</h4>
-      <ExamCleared />
+      <ExamCleared setX={setX} totalFiles={totalFiles} />
       <ApplyForSector setSector={setSector} />
       {(sector === "gov" || sector === "both") && <GovernmentApplicationInfo />}
       {(sector === "pvt" || sector === "both") && (
         <>
           {" "}
           <PrivateApplication1 />
-          <PrivateApplication2 />
+          <PrivateApplication2 setX={setX} totalFiles={totalFiles} />
           <PrivateApplication3 />
         </>
       )}
+      <div className="progress-bar">
+        <div className="progress">
+          Files uploaded : {progress.current}/{totalFiles.current}
+        </div>
+      </div>
       <button className="submit-update" onClick={handleUpdate}>
         Submit
       </button>

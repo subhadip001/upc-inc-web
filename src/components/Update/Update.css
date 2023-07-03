@@ -10,3 +10,10 @@
 .submit-update{
     @apply text-white text-xl font-medium bg-blue-200 rounded-lg py-3 w-56 font-poppins cursor-pointer;
 }
+.progress-bar {
+    @apply w-7/12 h-6 bg-grey-100 text-center mb-10;
+}
+
+.progress {
+    @apply bg-blue-400 text-white h-6;
+}
