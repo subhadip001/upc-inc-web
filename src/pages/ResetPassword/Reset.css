@@ -1,0 +1,19 @@
+.reset-page{
+    
+}
+.reset-sec{
+    @apply  bg-light py-10 flex flex-col items-center;
+}
+
+.reset-sec h1{
+    @apply text-4xl text-blue-300 font-semibold mb-4;
+}
+.reset-sec h4{
+    @apply font-normal text-blue-300 text-xl mb-20;
+}
+.reset-form{
+    @apply w-5/12;
+}
+#reset-btn{
+    @apply text-white text-xl font-medium bg-blue-200 rounded-lg py-3 w-56 font-poppins cursor-pointer;
+}

@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import UpdatePage from "./pages/UpdatePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Congratulations from "./components/congratulations/Congratulations";
+import Reset from "./pages/ResetPassword/Reset";
 
 export const UserContext = createContext();
 
@@ -42,6 +43,7 @@ function App() {
               <LoginPage setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
             }
           />
+          <Route path="/reset" element={<Reset />} />
           <Route
             path="/profile"
             element={

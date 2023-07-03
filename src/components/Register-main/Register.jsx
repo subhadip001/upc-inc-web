@@ -7,13 +7,41 @@ import DocUpload from "../DocUpload/DocUpload";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
-import { parse, stringify, toJSON, fromJSON } from "flatted";
+// import nodemailer from "nodemailer";
 
 const Register = ({ nav, setUser }) => {
   const [progress, setProgress] = useState(0);
+  const [verified, setVerified] = useState(false);
   useEffect(() => {
     console.log(progress);
   }, [progress]);
+
+  let verificationCode = null;
+  const verify = () => {
+    // alert(verificationCode);
+    let code = document.getElementById("v-code").value;
+    // alert(code);
+    if (code == verificationCode) {
+      alert("email verified");
+      setVerified(true);
+    } else {
+      alert("wrong verification code");
+    }
+  };
+  const sendVerificationCode = async () => {
+    verificationCode = Math.floor(100000 + Math.random() * 900000);
+    // alert(verificationCode);
+    await axios
+      .post("http://localhost:9000/upc/api/v1/verify", {
+        email: document.getElementById("email").value,
+        code: verificationCode,
+      })
+      .then((res) => {
+        console.log(res);
+        alert("email is sent please enter the verification code!");
+      });
+  };
+
   const handleRegister = async () => {
     const pass = document.getElementById("pass").value;
     const pass2 = document.getElementById("con-pass").value;
@@ -21,11 +49,15 @@ const Register = ({ nav, setUser }) => {
       alert("password and confirm password must be same!!!");
     } else {
       //upc generation
+      if (!verified) {
+        alert("please verify your email first");
+        return;
+      }
       let upcNum = 0;
       let upcId = "";
 
       async function isDuplicate(id) {
-        alert("checking duplicacy");
+        // alert("checking duplicacy");
         await axios
           .get("http://localhost:9000/upc/api/v1/fetch", {
             params: { upc_id: id },
@@ -39,7 +71,7 @@ const Register = ({ nav, setUser }) => {
       }
 
       async function generateUPC() {
-        alert("genearting pass");
+        // alert("genearting pass");
         let duplicate = true;
         while (duplicate) {
           upcNum = Math.floor(100000000 + Math.random() * 900000000);
@@ -54,7 +86,7 @@ const Register = ({ nav, setUser }) => {
 
       //document upload
 
-      alert("please wait while the files are being uploaded!");
+      // alert("please wait while the files are being uploaded!");
 
       let ImpDocs = [
         { name: "User Image", url: null },
@@ -237,7 +269,10 @@ const Register = ({ nav, setUser }) => {
     <div className="register-main">
       <h1>Register your profile </h1>
       <h4>Stay updated with latest exams and job opportunities</h4>
-      <PersonalDetails />
+      <PersonalDetails
+        sendVerificationCode={sendVerificationCode}
+        verify={verify}
+      />
       <Address />
       <Education />
       <DocUpload />

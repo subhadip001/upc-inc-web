@@ -27,3 +27,7 @@
 .input-box option{
 
 }
+.input-box-cont button{
+    @apply w-2/5 h-14 text-white text-base bg-blue-200 rounded-lg font-poppins cursor-pointer mt-8;
+    
+}

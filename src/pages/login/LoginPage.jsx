@@ -49,7 +49,13 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
           <input name="upc-c" type="text" id="login-upc" required />
           <label>Password</label>
           <input name="pass" type="password" id="login-pass" required />
-          <a href="#">Forgot Password ?</a>
+          <a
+            onClick={() => {
+              nav("/reset");
+            }}
+          >
+            Forgot Password ?
+          </a>
           <br />
           <button type="submit">Login</button>
           <p>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./PersonalDetails.css";
 
-const PersonalDetails = () => {
+const PersonalDetails = ({ sendVerificationCode, verify }) => {
   return (
     <div className="personaldetail-sec">
       <h2>Personal Details</h2>
@@ -15,9 +15,19 @@ const PersonalDetails = () => {
           required
         />
       </div>
-      <div className="input-box">
-        <label>Email Address :</label>
-        <input type="email" name="email" id="email" required />
+      <div className="input-box-cont">
+        <div className="input-box">
+          <label>Email Address :</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+        <button onClick={sendVerificationCode}>Send Verification Code</button>
+      </div>
+      <div className="input-box-cont">
+        <div className="input-box">
+          <label>Verification Code :</label>
+          <input type="number" name="v-code" id="v-code" required />
+        </div>
+        <button onClick={verify}>Verify Email</button>
       </div>
       <div className="input-box-cont">
         <div className="input-box">
