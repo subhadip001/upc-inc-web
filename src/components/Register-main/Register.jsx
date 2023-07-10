@@ -35,7 +35,9 @@ const Register = ({ nav, setUser }) => {
     let code = document.getElementById("v-code").value;
     // alert(code);
     if (code == verificationCode) {
-      alert("email verified");
+      document.getElementById("sendVBtn").disabled = true;
+      document.getElementById("verifyBtn").style.backgroundColor = "green";
+      document.getElementById("verifyBtn").innerHTML = "Verified";
       setVerified(true);
     } else {
       alert("wrong verification code");
@@ -222,7 +224,7 @@ const Register = ({ nav, setUser }) => {
       const year = document.getElementsByClassName("edu-year");
       const mark = document.getElementsByClassName("edu-marks");
       const cgpa = document.getElementsByClassName("edu-cgpa");
-      for (let i = 0; i < subj.length; i += 1) {
+      for (let i = 0; i < ed_stages.length; i += 1) {
         let ed_obj = {
           exam_passed: ed_stages[i],
           subject_discipline: subj[i].value,

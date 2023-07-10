@@ -47,7 +47,11 @@ function App() {
           <Route
             path="/profile"
             element={
-              <UpdatePage setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
+              <UpdatePage
+                setUser={setUser}
+                setIsLoggedIn={setIsLoggedIn}
+                user={user}
+              />
             }
           />
           <Route path="/congrats" element={<Congratulations />} />

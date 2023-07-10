@@ -11,7 +11,7 @@ const Congratulations = () => {
       <h1>CONGRATULATIONS !</h1>
       <h3>Your UPC Code has been generated</h3>
       <h4>
-        Your UPC -- <em id="upc-no">"{user.upc_id}"</em>
+        Your UPC -- <em id="upc-no">"{user?.upc_id}"</em>
       </h4>
       <button onClick={() => nav("/login")}>Log In</button>
     </div>

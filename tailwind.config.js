@@ -18,6 +18,9 @@ export default {
       playfair: "Playfair Display",
     },
     colors: {
+      red: {
+        100: "#d0342c",
+      },
       blue: {
         100: "#0044CB",
         200: "#195ABD",
