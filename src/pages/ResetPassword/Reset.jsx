@@ -27,8 +27,10 @@ const Reset = () => {
   };
   const verifyAccount = () => {
     if (verifyCode == document.getElementById("reset-code").value) {
-      alert("Account Verified!");
       setAcVerified(true);
+      document.getElementById("verifyCode").innerHTML = "Verified";
+      document.getElementById("verifyCode").style.backgroundColor = "green";
+      document.getElementById("sendEmail").disabled = true;
     } else {
       alert("Please enter correct code!");
     }
@@ -70,7 +72,7 @@ const Reset = () => {
               <label>UPC CODE :</label>
               <input type="text" name="reset-upc" id="reset-upc" required />
             </div>
-            <button onClick={findAccountAndEmail}>
+            <button id="sendEmail" onClick={findAccountAndEmail}>
               Send Password Reset Code
             </button>
           </div>
@@ -79,7 +81,9 @@ const Reset = () => {
               <label>Enter Code :</label>
               <input type="number" name="reset-code" id="reset-code" required />
             </div>
-            <button onClick={verifyAccount}>Verify Account</button>
+            <button id="verifyCode" onClick={verifyAccount}>
+              Verify Account
+            </button>
           </div>
           <div className="input-box">
             <label>New Password :</label>

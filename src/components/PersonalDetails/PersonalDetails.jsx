@@ -20,14 +20,18 @@ const PersonalDetails = ({ sendVerificationCode, verify }) => {
           <label>Email Address :</label>
           <input type="email" name="email" id="email" required />
         </div>
-        <button onClick={sendVerificationCode}>Send Verification Code</button>
+        <button id="sendVBtn" onClick={sendVerificationCode}>
+          Send Verification Code
+        </button>
       </div>
       <div className="input-box-cont">
         <div className="input-box">
           <label>Verification Code :</label>
           <input type="number" name="v-code" id="v-code" required />
         </div>
-        <button onClick={verify}>Verify Email</button>
+        <button id="verifyBtn" onClick={verify}>
+          Verify Email
+        </button>
       </div>
       <div className="input-box-cont">
         <div className="input-box">

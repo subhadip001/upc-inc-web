@@ -18,19 +18,20 @@ const Update = ({ setUser, nav }) => {
   const totalFiles = useRef(0);
   const [sector, setSector] = useState("gov");
   const user = useContext(UserContext);
+
   useEffect(() => {
-    if (progress.current === 0) {
-      document.getElementsByClassName("progress-bar")[0].style.display = "none";
-    }
+    document.getElementById("progress-bar").style.display = "none";
+    document.getElementById("progress").style.display = "none";
     if (progress.current >= 1) {
       // alert(progress);
-      document.getElementsByClassName("progress-bar")[0].style.display =
-        "block";
+      document.getElementById("progress-bar").style.display = "block";
+      document.getElementById("progress").style.display = "block";
     }
-    document.getElementsByClassName("progress")[0].style.width = `${
+
+    document.getElementById("progress").style.width = `${
       (progress.current / totalFiles.current) * 100
     }%`;
-  }, [progress.current]);
+  }, [x]);
   console.log(user);
   const handleUpdate = async () => {
     let examsCleared = user.examsCleared || [];
@@ -311,9 +312,11 @@ const Update = ({ setUser, nav }) => {
           alert(res.data.message);
 
           setUser(user);
+
           progress.current = 0;
           totalFiles.current = 0;
           setX(Math.random());
+          location.reload();
         });
     } catch (err) {
       console.log(err);
@@ -336,8 +339,8 @@ const Update = ({ setUser, nav }) => {
           <PrivateApplication3 />
         </>
       )}
-      <div className="progress-bar">
-        <div className="progress">
+      <div className="progress-bar" id="progress-bar">
+        <div className="progress" id="progress">
           Files uploaded : {progress.current}/{totalFiles.current}
         </div>
       </div>

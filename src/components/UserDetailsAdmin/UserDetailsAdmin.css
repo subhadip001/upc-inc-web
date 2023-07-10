@@ -1,0 +1,14 @@
+.user-details-sec {
+    @apply bg-light py-10 flex flex-col items-center w-screen;
+}
+
+.user-details-sec h1 {
+    @apply text-4xl text-blue-300 font-semibold mb-10;
+}
+
+.user-details-sec h4 {
+    @apply cursor-pointer font-medium text-blue-300 text-xl mb-4 w-8/12 text-left;
+}
+.delete-btn{
+    @apply text-white text-xl font-medium bg-red-100 rounded-lg py-3 w-56 font-poppins cursor-pointer
+}
