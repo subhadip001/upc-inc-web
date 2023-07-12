@@ -27,7 +27,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
       } else {
         try {
           const { data } = await axios.post(
-            "http://localhost:9000/upc/api/v1/check",
+            "https://api.subhadipmandal.engineer/upc/api/v1/check",
             {},
             { withCredentials: true }
           );
@@ -142,7 +142,9 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
 
     try {
       await axios
-        .patch("http://localhost:9000/upc/api/v1/edit", { user: userNew })
+        .patch("https://api.subhadipmandal.engineer/upc/api/v1/edit", {
+          user: userNew,
+        })
         .then((res) => {
           console.log(res);
           alert(res.data.message);
