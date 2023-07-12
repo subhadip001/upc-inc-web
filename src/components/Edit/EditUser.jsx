@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Edituser.css";
 import { useContext, useEffect, useRef } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
