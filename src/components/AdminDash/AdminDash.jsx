@@ -10,7 +10,7 @@ const AdminDash = ({ setUserDetails }) => {
     const fetchUsers = async () => {
       try {
         await axios
-          .get("http://localhost:9000/upc/api/v1/getAll")
+          .get("https://api.subhadipmandal.engineer/upc/api/v1/getAll")
           .then((res) => {
             setUsers(res.data.users);
           });

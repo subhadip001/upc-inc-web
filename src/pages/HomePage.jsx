@@ -24,13 +24,12 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
       } else {
         try {
           const { data } = await axios.post(
-            "http://localhost:9000/upc/api/v1/check",
+            "https://api.subhadipmandal.engineer/upc/api/v1/check",
             {},
             { withCredentials: true }
           );
           if (!data.status) {
             removeCookies("jwt");
-            nav("/login");
           } else {
             setIsLoggedIn(true);
 
