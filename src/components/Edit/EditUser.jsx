@@ -25,17 +25,19 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
         nav("/login");
       } else {
         try {
-          const { data } = await axios.post(
-            "https://api.subhadipmandal.engineer/upc/api/v1/check",
+          const response = await axios.post(
+            "http://localhost:9000/upc/api/v1/check",
             {},
             { withCredentials: true }
           );
+  
+          const data = response.data; // Get the data from the response object
+  
           if (!data.status) {
             removeCookies("jwt");
             nav("/login");
           } else {
             setIsLoggedIn(true);
-
             setUser(data.user);
             setEditteduser(data.user);
             // console.log(user);
@@ -49,6 +51,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
     };
     verifyuser();
   }, [cookies, setCookies, removeCookies]);
+  
   const handleEdituser = async () => {
     //file uploading
 
@@ -141,7 +144,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
 
     try {
       await axios
-        .patch("https://api.subhadipmandal.engineer/upc/api/v1/edit", {
+        .patch("http://localhost:9000/upc/api/v1/edit", {
           user: userNew,
         })
         .then((res) => {

@@ -24,7 +24,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
       } else {
         try {
           const { data } = await axios.post(
-            "https://api.subhadipmandal.engineer/upc/api/v1/check",
+            "http://localhost:9000/upc/api/v1/check",
             {},
             { withCredentials: true }
           );

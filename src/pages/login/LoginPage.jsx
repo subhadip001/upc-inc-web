@@ -18,7 +18,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
     let userRes = null;
     let resp = null;
     await axios
-      .get("https://api.subhadipmandal.engineer/upc/api/v1/fetch", {
+      .get("http://localhost:9000/upc/api/v1/fetch", {
         params: { upc_id: upc.value, password: password.value },
       })
       .then((res) => {

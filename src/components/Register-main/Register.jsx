@@ -47,7 +47,7 @@ const Register = ({ nav, setUser }) => {
     verificationCode = Math.floor(100000 + Math.random() * 900000);
     // alert(verificationCode);
     await axios
-      .post("https://api.subhadipmandal.engineer/upc/api/v1/verify", {
+      .post("http://localhost:9000/upc/api/v1/verify", {
         email: document.getElementById("email").value,
         code: verificationCode,
       })
@@ -93,7 +93,7 @@ const Register = ({ nav, setUser }) => {
       async function isDuplicate(id) {
         // alert("checking duplicacy");
         await axios
-          .get("https://api.subhadipmandal.engineer/upc/api/v1/fetch", {
+          .get("http://localhost:9000/upc/api/v1/fetch", {
             params: { upc_id: id },
           })
           .then((res) => {
@@ -296,7 +296,7 @@ const Register = ({ nav, setUser }) => {
         // alert("trying to create");
         await axios
           .post(
-            "https://api.subhadipmandal.engineer/upc/api/v1/register",
+            "http://localhost:9000/upc/api/v1/register",
             { user: newUser },
             { withCredentials: true }
           )
