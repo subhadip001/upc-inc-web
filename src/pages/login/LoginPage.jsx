@@ -31,7 +31,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
       setUser(userRes.user);
       setCookies("jwt", userRes.token);
       console.log(userRes);
-      alert("SUCCESSFULLY LOGGED IN !!!");
+      
       nav("/profile");
     } else {
       console.log(resp);
