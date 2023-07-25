@@ -11,6 +11,14 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
   //     console.log(userNew.education_details[1].institution);
   //     alert(userNew.education_details[1].institution);
   //   });
+
+  const LinkButton = ({ link }) => {
+    const handleButtonClick = () => {
+      window.open(link, '_blank'); // Open the link in a new tab
+    };
+  
+    return <p onClick={handleButtonClick}>Visit Link</p>;
+  };
   const progress = useRef(0);
   const [x, setX] = useState(0);
   const [totalFiles, setTotalFiles] = useState(0);
@@ -25,17 +33,19 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
         nav("/login");
       } else {
         try {
-          const { data } = await axios.post(
-            "https://api.subhadipmandal.engineer/upc/api/v1/check",
+          const response = await axios.post(
+            "http://localhost:9000/upc/api/v1/check",
             {},
             { withCredentials: true }
           );
+  
+          const data = response.data; // Get the data from the response object
+  
           if (!data.status) {
             removeCookies("jwt");
             nav("/login");
           } else {
             setIsLoggedIn(true);
-
             setUser(data.user);
             setEditteduser(data.user);
             // console.log(user);
@@ -49,6 +59,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
     };
     verifyuser();
   }, [cookies, setCookies, removeCookies]);
+  
   const handleEdituser = async () => {
     //file uploading
 
@@ -141,7 +152,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
 
     try {
       await axios
-        .patch("https://api.subhadipmandal.engineer/upc/api/v1/edit", {
+        .patch("http://localhost:9000/upc/api/v1/edit", {
           user: userNew,
         })
         .then((res) => {
@@ -1736,66 +1747,94 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
       <div className="doc-sec">
         <h2>Documents Uploaded</h2>
         <div className="doc-grid-cont">
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
               document.querySelector("#profile-pic-file").click();
               setTotalFiles(totalFiles + 1);
+              
             }}
           >
-            <input type="file" id="profile-pic-file" hidden />
+            <input type="file" id="profile-pic-file" onChange={()=>document.querySelectorAll('.file-name')[0].innerHTML=document.querySelector("#profile-pic-file").files[0].name} hidden />
             <img src="profile.png" alt="userNew profile" />
             <h4>Upload your Picture</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 200kb</p>
           </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[0]?.url} target="blank" rel="noopener noreferrer" >{userNew?.imp_docs?.[0]?.url?"View Document":"No previous document"}</a>
+          </div>
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
               document.querySelector("#sign-file").click();
               setTotalFiles(totalFiles + 1);
+              
             }}
           >
-            <input type="file" id="sign-file" hidden />
+            <input type="file" id="sign-file" onChange={()=>document.querySelectorAll('.file-name')[1].innerHTML=document.querySelector("#sign-file").files[0].name} hidden />
             <img src="doc1.png" alt="document1" />
             <h4>Upload your Signature</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 50kb</p>
           </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[1]?.url} target="blank" rel="noopener noreferrer">{userNew?.imp_docs?.[1]?.url?"View Document":"No previous document"}</a>
+          </div>
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
               document.querySelector("#mk10-file").click();
               setTotalFiles(totalFiles + 1);
+              
             }}
           >
-            <input type="file" id="mk10-file" hidden />
+            <input type="file" id="mk10-file" onChange={()=>document.querySelectorAll('.file-name')[2].innerHTML=document.querySelector("#mk10-file").files[0].name} hidden />
             <img src="doc1.png" alt="document1" />
             <h4>Upload 10th Marksheet</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 50kb</p>
+            
           </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[2]?.url} target="blank" rel="noopener noreferrer">{userNew?.imp_docs?.[2]?.url?"View Document":"No previous document"}</a>
+          </div>
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
               document.querySelector("#mk12-file").click();
               setTotalFiles(totalFiles + 1);
+              
             }}
           >
-            <input type="file" id="mk12-file" hidden />
+            <input type="file" id="mk12-file" onChange={()=>document.querySelectorAll('.file-name')[3].innerHTML=document.querySelector("#mk12-file").files[0].name} hidden />
             <img src="doc1.png" alt="document1" />
             <h4>Upload 12th Marksheet</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 50kb</p>
           </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[3]?.url} target="blank" rel="noopener noreferrer">{userNew?.imp_docs?.[3]?.url?"View Document":"No previous document"}</a>
+          </div>
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
               document.querySelector("#aadhar-file").click();
               setTotalFiles(totalFiles + 1);
+              
             }}
           >
-            <input type="file" id="aadhar-file" hidden />
+            <input type="file" id="aadhar-file" onChange={()=>document.querySelectorAll('.file-name')[4].innerHTML=document.querySelector("#aadhar-file").files[0].name} hidden />
             <img src="doc2.png" alt="document2" />
             <h4>Upload Aadhar Card</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 200kb</p>
           </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[4]?.url} target="blank" rel="noopener noreferrer">{userNew?.imp_docs?.[4]?.url?"View Document":"No previous document"}</a>
+          
+          </div>
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
@@ -1803,22 +1842,30 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
               setTotalFiles(totalFiles + 1);
             }}
           >
-            <input type="file" id="pan-file" hidden />
+            <input type="file" id="pan-file" onChange={()=>document.querySelectorAll('.file-name')[5].innerHTML=document.querySelector("#pan-file").files[0].name} hidden />
             <img src="doc2.png" alt="document2" />
             <h4>Upload Pan Card</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 50kb</p>
           </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[5]?.url} target="blank" rel="noopener noreferrer">{userNew?.imp_docs?.[5]?.url?"View Document":"No previous document"}</a>
+          </div>
+          <div>
           <div
             className="upload-file-card"
             onClick={() => {
               document.querySelector("#cast-file").click();
               setTotalFiles(totalFiles + 1);
+              
             }}
           >
-            <input type="file" id="cast-file" hidden />
+            <input type="file" id="cast-file" onChange={()=>document.querySelectorAll('.file-name')[6].innerHTML=document.querySelector("#cast-file").files[0].name} hidden />
             <img src="doc2.png" alt="document2" />
             <h4>Upload Cast Certificate</h4>
+            <p className="file-name" style={{color:"maroon",marginBottom:'4%'}}>No file Chosen</p>
             <p>Less than 50kb</p>
+          </div>
+          <a style={{color:"navy",marginLeft:"15%"}} href={userNew?.imp_docs?.[6]?.url} target="blank" rel="noopener noreferrer">{userNew?.imp_docs?.[6]?.url?"View Document":"No previous document"}</a>
           </div>
         </div>
       </div>

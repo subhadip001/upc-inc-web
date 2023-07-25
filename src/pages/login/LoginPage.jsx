@@ -18,7 +18,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
     let userRes = null;
     let resp = null;
     await axios
-      .get("https://api.subhadipmandal.engineer/upc/api/v1/fetch", {
+      .get("http://localhost:9000/upc/api/v1/fetch", {
         params: { upc_id: upc.value, password: password.value },
       })
       .then((res) => {
@@ -31,7 +31,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
       setUser(userRes.user);
       setCookies("jwt", userRes.token);
       console.log(userRes);
-      alert("SUCCESSFULLY LOGGED IN !!!");
+      
       nav("/profile");
     } else {
       console.log(resp);
