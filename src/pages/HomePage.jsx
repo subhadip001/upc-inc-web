@@ -29,7 +29,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
             { withCredentials: true }
           );
           if (!data.status) {
-            removeCookies("jwt");
+            // removeCookies("jwt");
           } else {
             setIsLoggedIn(true);
 

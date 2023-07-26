@@ -43,7 +43,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
           
   
           if (!data.status) {
-            removeCookies("jwt");
+            // removeCookies("jwt");
             nav("/login");
           } else {
             setIsLoggedIn(true);
