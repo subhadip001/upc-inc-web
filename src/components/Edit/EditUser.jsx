@@ -6,7 +6,7 @@ import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { UserContext } from "../../App";
 
-const Edituser = ({ setUser, setIsLoggedIn, user }) => {
+const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
   //   useEffect(() => {
   //     console.log(userNew.education_details[1].institution);
   //     alert(userNew.education_details[1].institution);
@@ -22,7 +22,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
   const progress = useRef(0);
   const [x, setX] = useState(0);
   const [totalFiles, setTotalFiles] = useState(0);
-  const [cookies, setCookies, removeCookies] = useCookies([]);
+  const [cookies, setCookies, removeCookies] = useCookies(['jwt']);
   //   const userNew1 = useContext(userNewContext);
   const [userNew, setEditteduser] = useState(user);
 
@@ -34,8 +34,8 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
       } else {
         try {
           const response = await axios.post(
-            "http://localhost:9000/upc/api/v1/check",
-            {cookies:localStorage.getItem('jwt')},
+            "https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/check",
+            {},
             { withCredentials: true }
           );
   
@@ -153,7 +153,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
 
     try {
       await axios
-        .patch("http://localhost:9000/upc/api/v1/edit", {
+        .patch("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/edit", {
           user: userNew,
           
         })

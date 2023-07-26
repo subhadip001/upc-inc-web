@@ -10,7 +10,7 @@ const AdminDash = ({ setUserDetails }) => {
     const fetchUsers = async () => {
       try {
         await axios
-          .get("http://localhost:9000/upc/api/v1/getAll")
+          .get("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/getAll")
           .then((res) => {
             setUsers(res.data.users);
           });

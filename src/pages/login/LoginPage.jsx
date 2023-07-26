@@ -18,7 +18,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
     let userRes = null;
     let resp = null;
     await axios
-      .get("http://localhost:9000/upc/api/v1/fetch", {
+      .get("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/fetch", {
         params: { upc_id: upc.value, password: password.value },
       })
       .then((res) => {
@@ -31,7 +31,6 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
       setUser(userRes.user);
       setCookies("jwt", userRes.token);
       console.log(userRes);
-      
       nav("/profile");
     } else {
       console.log(resp);
