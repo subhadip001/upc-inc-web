@@ -25,7 +25,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
         try {
           const { data } = await axios.post(
             "http://localhost:9000/upc/api/v1/check",
-            {},
+            {cookies:localStorage.getItem('jwt')},
             { withCredentials: true }
           );
           if (!data.status) {
