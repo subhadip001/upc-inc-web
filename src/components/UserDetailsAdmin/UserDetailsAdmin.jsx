@@ -17,7 +17,7 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
           params: { upc_id: userDetails.upc_id },
         })
         .then((res) => {
-          alert(res.data.message);
+          // alert(res.data.message);
 
           location.reload();
         });
@@ -110,7 +110,7 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
         })
         .then((res) => {
           console.log(res);
-          alert(res.data.message);
+          // alert(res.data.message);
 
           // setUser(user);
           progress.current = 0;
@@ -120,7 +120,7 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
         });
     } catch (err) {
       console.log(err);
-      alert(err.response.data.message);
+      // alert(err.response.data.message);
     }
   };
   useEffect(() => {

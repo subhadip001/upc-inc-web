@@ -311,7 +311,7 @@ const Update = ({ setUser, nav }) => {
         })
         .then((res) => {
           console.log(res);
-          alert(res.data.message);
+          // alert(res.data.message);
 
           setUser(user);
 
@@ -322,7 +322,7 @@ const Update = ({ setUser, nav }) => {
         });
     } catch (err) {
       console.log(err);
-      alert(err.response.data.message);
+      // alert(err.response.data.message);
       nav("/");
     }
   };

@@ -15,7 +15,7 @@ const AdminDash = ({ setUserDetails }) => {
             setUsers(res.data.users);
           });
       } catch (err) {
-        alert(err);
+        // alert(err);
       }
     };
     fetchUsers();

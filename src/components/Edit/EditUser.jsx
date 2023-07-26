@@ -54,7 +54,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
           }
         } catch (err) {
           console.log(err);
-          alert(err);
+          // alert(err);
         }
       }
     };
@@ -159,7 +159,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
         })
         .then((res) => {
           console.log(res);
-          alert(res.data.message);
+          // alert(res.data.message);
 
           // setUser(user);
           progress.current = 0;
@@ -169,7 +169,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
         });
     } catch (err) {
       console.log(err);
-      alert(err.response.data.message);
+      // alert(err.response.data.message);
     }
   };
   useEffect(() => {
