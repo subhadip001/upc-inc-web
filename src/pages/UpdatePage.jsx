@@ -19,7 +19,7 @@ const UpdatePage = ({ setUser, setIsLoggedIn, user }) => {
         setIsLoggedIn={setIsLoggedIn}
       />
       {user.upc_id !== "admin" && (
-        <EditUser setUser={setUser} setIsLoggedIn={setIsLoggedIn} user={user} />
+        <EditUser setUser={setUser} setIsLoggedIn={setIsLoggedIn} user={user} nav={nav} />
       )}
       {user.upc_id !== "admin" && <Update setUser={setUser} nav={nav} />}
       {user.upc_id === "admin" && userDetails === null && (

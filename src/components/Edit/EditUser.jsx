@@ -6,7 +6,7 @@ import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { UserContext } from "../../App";
 
-const Edituser = ({ setUser, setIsLoggedIn, user }) => {
+const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
   //   useEffect(() => {
   //     console.log(userNew.education_details[1].institution);
   //     alert(userNew.education_details[1].institution);
@@ -34,7 +34,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
       } else {
         try {
           const response = await axios.post(
-            "http://localhost:9000/upc/api/v1/check",
+            "https://api.subhadipmandal.engineer/upc/api/v1/check",
             {},
             { withCredentials: true }
           );
@@ -153,7 +153,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
 
     try {
       await axios
-        .patch("http://localhost:9000/upc/api/v1/edit", {
+        .patch("https://api.subhadipmandal.engineer/upc/api/v1/edit", {
           user: userNew,
           
         })

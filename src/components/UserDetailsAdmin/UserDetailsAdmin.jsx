@@ -13,7 +13,7 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
   const deleteUser = async () => {
     try {
       await axios
-        .delete("http://localhost:9000/upc/api/v1/deleteOne", {
+        .delete("https://api.subhadipmandal.engineer/upc/api/v1/deleteOne", {
           params: { upc_id: userDetails.upc_id },
         })
         .then((res) => {
@@ -105,7 +105,7 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
 
     try {
       await axios
-        .patch("http://localhost:9000/upc/api/v1/edit", {
+        .patch("https://api.subhadipmandal.engineer/upc/api/v1/edit", {
           user: userNew,
         })
         .then((res) => {
