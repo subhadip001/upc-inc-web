@@ -17,7 +17,7 @@ const Reset = () => {
     } else {
       verifyCode = Math.floor(100000 + Math.random() * 900000);
       await axios
-        .get("http://localhost:9000/upc/api/v1/resetEmail", {
+        .get("https://api.subhadipmandal.engineer/upc/api/v1/resetEmail", {
           params: { upc_id: upc, code: verifyCode },
         })
         .then((res) => {
@@ -45,7 +45,7 @@ const Reset = () => {
     } else {
       try {
         await axios
-          .patch("http://localhost:9000/upc/api/v1/resetPass", {
+          .patch("https://api.subhadipmandal.engineer/upc/api/v1/resetPass", {
             upc_id: upc,
             newPass: newPass,
           })
