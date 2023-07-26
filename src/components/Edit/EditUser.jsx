@@ -170,6 +170,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
     } catch (err) {
       console.log(err);
       // alert(err.response.data.message);
+      nav('/login')
     }
   };
   useEffect(() => {

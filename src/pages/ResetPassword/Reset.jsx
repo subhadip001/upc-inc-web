@@ -41,7 +41,7 @@ const Reset = () => {
     if (!acVerified) {
       alert("Please verify your account!");
     } else if (newPass === "") {
-      alert("Passwor cannot be empty!");
+      alert("Password cannot be empty!");
     } else {
       try {
         await axios

@@ -20,7 +20,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
   useEffect(() => {
     const verifyUser = async () => {
       if (!cookies.jwt) {
-        nav("/login");
+        // nav("/login");
       } else {
         try {
           const { data } = await axios.post(
