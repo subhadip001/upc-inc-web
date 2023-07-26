@@ -26,7 +26,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
           const { data } = await axios.post(
             "http://localhost:9000/upc/api/v1/check",
             {},
-            { withCredentials: 'include' }
+            { withCredentials: 'true' }
           );
           if (!data.status) {
             removeCookies("jwt");

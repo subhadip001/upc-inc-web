@@ -36,7 +36,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
           const response = await axios.post(
             "http://localhost:9000/upc/api/v1/check",
             {},
-            { withCredentials: 'include' }
+            { withCredentials: 'true' }
           );
   
           const data = response.data; // Get the data from the response object
