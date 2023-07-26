@@ -36,10 +36,11 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
           const response = await axios.post(
             "http://localhost:9000/upc/api/v1/check",
             {},
-            { withCredentials: true }
+            { withCredentials: 'include' }
           );
   
           const data = response.data; // Get the data from the response object
+          
   
           if (!data.status) {
             removeCookies("jwt");
@@ -154,6 +155,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
       await axios
         .patch("http://localhost:9000/upc/api/v1/edit", {
           user: userNew,
+          
         })
         .then((res) => {
           console.log(res);
