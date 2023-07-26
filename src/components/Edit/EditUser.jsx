@@ -22,7 +22,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
   const progress = useRef(0);
   const [x, setX] = useState(0);
   const [totalFiles, setTotalFiles] = useState(0);
-  const [cookies, setCookies, removeCookies] = useCookies([]);
+  const [cookies, setCookies, removeCookies] = useCookies(['jwt']);
   //   const userNew1 = useContext(userNewContext);
   const [userNew, setEditteduser] = useState(user);
 
@@ -35,7 +35,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user }) => {
         try {
           const response = await axios.post(
             "http://localhost:9000/upc/api/v1/check",
-            {cookies:localStorage.getItem('jwt')},
+            {},
             { withCredentials: true }
           );
   

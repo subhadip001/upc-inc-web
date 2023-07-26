@@ -14,7 +14,7 @@ import { UserContext } from "../App";
 const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
   const nav = useNavigate();
 
-  const [cookies, setCookies, removeCookies] = useCookies([]);
+  const [cookies, setCookies, removeCookies] = useCookies(['jwt']);
   const user = useContext(UserContext);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
         try {
           const { data } = await axios.post(
             "http://localhost:9000/upc/api/v1/check",
-            {cookies:localStorage.getItem('jwt')},
+            {},
             { withCredentials: true }
           );
           if (!data.status) {
