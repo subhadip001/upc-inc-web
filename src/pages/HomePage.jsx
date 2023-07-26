@@ -24,7 +24,7 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
       } else {
         try {
           const { data } = await axios.post(
-            "https://api.subhadipmandal.engineer/upc/api/v1/check",
+            "https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/check",
             {},
             { withCredentials: true }
           );

@@ -306,7 +306,7 @@ const Update = ({ setUser, nav }) => {
     user.reference = reference;
     try {
       await axios
-        .patch("https://api.subhadipmandal.engineer/upc/api/v1/update", {
+        .patch("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/update", {
           user: user,
         })
         .then((res) => {

@@ -34,7 +34,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
       } else {
         try {
           const response = await axios.post(
-            "https://api.subhadipmandal.engineer/upc/api/v1/check",
+            "https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/check",
             {},
             { withCredentials: true }
           );
@@ -153,7 +153,7 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
 
     try {
       await axios
-        .patch("https://api.subhadipmandal.engineer/upc/api/v1/edit", {
+        .patch("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/edit", {
           user: userNew,
           
         })
