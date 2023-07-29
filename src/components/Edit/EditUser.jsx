@@ -5,12 +5,15 @@ import axios from "axios";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { UserContext } from "../../App";
+import { json } from "react-router-dom";
 
 const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
   //   useEffect(() => {
   //     console.log(userNew.education_details[1].institution);
   //     alert(userNew.education_details[1].institution);
   //   });
+
+  
 
   const LinkButton = ({ link }) => {
     const handleButtonClick = () => {
@@ -25,6 +28,42 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
   const [cookies, setCookies, removeCookies] = useCookies(['jwt']);
   //   const userNew1 = useContext(userNewContext);
   const [userNew, setEditteduser] = useState(user);
+
+  const fetch=async()=>{
+    let userRes = null;
+    let resp = null;
+    const fetchUsers = async () => {
+      try {
+        await axios
+          .get("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/getAll")
+          .then(async(res) => {
+            // setUsers(res.data.users);
+            let index=null
+            const arr=await res.data.users
+            for(let i=0;i<res.data.users.length;i++){
+              console.log(i)
+              console.log(arr)
+              if(arr[i]?.upc_id===JSON.parse(localStorage.getItem('user')).upc_id){
+                // index=i
+                console.log('this is our user : '+JSON.stringify(arr[i]))
+                setIsLoggedIn(true);
+                setUser(arr[i]);
+                setEditteduser(arr[i])
+                
+                localStorage.setItem('user',JSON.stringify(arr[i]))
+                
+              }
+            }
+            
+          });
+      } catch (err) {
+        // alert(err);
+        // console.log('hello')
+      }
+    };
+    fetchUsers()
+   
+  }
 
   console.log(userNew);
   useEffect(() => {
@@ -47,14 +86,20 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
             nav("/login");
           } else {
             setIsLoggedIn(true);
-            setUser(data.user);
-            setEditteduser(data.user);
+            fetch()
+            
             // console.log(user);
             // alert(user.upc_id);
           }
         } catch (err) {
           console.log(err);
           // alert(err);
+          console.log(JSON.parse(localStorage.getItem('user')))
+          setIsLoggedIn(true);
+            
+            await fetch()
+            setUser(JSON.parse(localStorage.getItem('user')));
+            setEditteduser(JSON.parse(localStorage.getItem('user')));
         }
       }
     };
@@ -170,7 +215,14 @@ const Edituser = ({ setUser, setIsLoggedIn, user,nav }) => {
     } catch (err) {
       console.log(err);
       // alert(err.response.data.message);
-      nav('/login')
+
+      progress.current = 0;
+          setTotalFiles(0);
+          setX(Math.random());
+          location.reload();
+
+
+      // nav('/login')
     }
   };
   useEffect(() => {

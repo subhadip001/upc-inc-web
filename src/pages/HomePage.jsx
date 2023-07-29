@@ -39,7 +39,11 @@ const HomePage = ({ isLoggedIn, setUser, setIsLoggedIn }) => {
             // alert(user.upc_id);
           }
         } catch (err) {
-          console.log(err);
+          // console.log(err);
+          setUser(JSON.parse(localStorage.getItem('user')))
+          if(JSON.parse(localStorage.getItem('user'))){
+            setIsLoggedIn(true)
+          }
         }
       }
     };

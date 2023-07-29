@@ -22,7 +22,8 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
           location.reload();
         });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
+      location.reload();
     }
   };
   const handleEdituser = async () => {
@@ -119,8 +120,9 @@ const UserDetailsAdmin = ({ userDetails, setUserDetails }) => {
           location.reload();
         });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       // alert(err.response.data.message);
+      location.reload();
     }
   };
   useEffect(() => {

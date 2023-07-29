@@ -23,7 +23,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
       })
       .then((res) => {
         resp = res.status;
-        console.log(res.data);
+        // console.log(res.data);
         userRes = res.data;
       });
     if (resp == 201) {
@@ -31,6 +31,7 @@ const LoginPage = ({ setIsLoggedIn, setUser }) => {
       setUser(userRes.user);
       setCookies("jwt", userRes.token);
       console.log(userRes);
+      localStorage.setItem('user',JSON.stringify(userRes.user))
       nav("/profile");
     } else {
       console.log(resp);

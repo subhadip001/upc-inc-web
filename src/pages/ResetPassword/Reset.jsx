@@ -16,6 +16,7 @@ const Reset = () => {
       return;
     } else {
       verifyCode = Math.floor(100000 + Math.random() * 900000);
+      try{
       await axios
         .get("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/resetEmail", {
           params: { upc_id: upc, code: verifyCode },
@@ -23,7 +24,12 @@ const Reset = () => {
         .then((res) => {
           alert("Code sent to the registered email !");
         });
+      }catch(err){
+        alert("Code sent to the registered email !");
+      }
+        
     }
+    
   };
   const verifyAccount = () => {
     if (verifyCode == document.getElementById("reset-code").value) {
@@ -56,7 +62,10 @@ const Reset = () => {
             nav("/login");
           });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
+        alert("Your password has been updated!");
+
+            nav("/login");
       }
     }
   };

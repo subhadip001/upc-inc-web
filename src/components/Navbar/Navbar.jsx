@@ -7,6 +7,7 @@ const Navbar = ({ nav, isLoggedIn, setUser, setIsLoggedIn }) => {
   const logOut = () => {
     setUser({});
     setIsLoggedIn(false);
+    localStorage.removeItem('user')
     removeCookies("jwt");
     nav("/login");
   };
