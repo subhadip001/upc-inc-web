@@ -47,10 +47,10 @@ const Register = ({ nav, setUser }) => {
     verificationCode = Math.floor(100000 + Math.random() * 900000);
     // alert(verificationCode);
     await axios
-      .post("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/verify", {
+      .post("http://localhost:9000/upc/api/v1//verify", {
         email: document.getElementById("email").value,
         code: verificationCode,
-      })
+      },)
       .then((res) => {
         console.log(res);
         alert("email is sent please enter the verification code!");
@@ -306,9 +306,10 @@ const Register = ({ nav, setUser }) => {
             setUser(newUser);
           });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
-
+      alert("User added successfully");
+      setUser(newUser);
       nav("/congrats");
     }
   };
