@@ -47,7 +47,7 @@ const Register = ({ nav, setUser }) => {
     verificationCode = Math.floor(100000 + Math.random() * 900000);
     // alert(verificationCode);
     await axios
-      .post("http://localhost:9000/upc/api/v1//verify", {
+      .post("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/verify", {
         email: document.getElementById("email").value,
         code: verificationCode,
       },)
