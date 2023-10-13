@@ -3,10 +3,31 @@ import "./ImportantLinks.css";
 import Jobs from "../Jobs/Jobs";
 import Results from "../Results/Results";
 import AdmitCards from "../AdmitCards/AdmitCards";
+import axios from "axios";
 
 const ImportantLinks = () => {
   const btnIds = ["all", "job", "result", "admit"];
   const [id, setId] = useState(0);
+  const [links,setLinks]=useState([])
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      try {
+        await axios
+          .get("https://t2bflnyx5i.execute-api.ap-south-1.amazonaws.com/prod/upc/api/v1/getLinks")
+          .then((res) => {
+            setLinks(res.data.links);
+            // alert("links fetched!")
+            // alert(res.data.links)
+          });
+      } catch (err) {
+        // alert(err);
+      }
+    };
+    fetchLinks();
+    // alert(links)
+  }, []);
+
   useEffect(() => {
     for (let i = 0; i < 4; i++) {
       let el = document.getElementById(btnIds[i]);
@@ -55,9 +76,9 @@ const ImportantLinks = () => {
           Admit Card
         </button>
       </div>
-      {id === 0 || id === 1 ? <Jobs /> : <></>}
-      {id === 0 || id === 2 ? <Results /> : <></>}
-      {id === 0 || id === 3 ? <AdmitCards /> : <></>}
+      {id === 0 || id === 1 ? <Jobs links={links} /> : <></>}
+      {id === 0 || id === 2 ? <Results links={links} /> : <></>}
+      {id === 0 || id === 3 ? <AdmitCards links={links} /> : <></>}
     </div>
   );
 };

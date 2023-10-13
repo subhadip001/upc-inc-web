@@ -28,3 +28,9 @@
 .carousel-dot-clicked{
     @apply rounded-[100%] bg-blue-200 w-5 h-5 mx-1 my-px;
 }
+
+@media only screen and (max-width:770px) {
+    .review-txt{
+        @apply w-10/12
+    }
+}

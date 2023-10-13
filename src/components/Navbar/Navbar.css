@@ -6,7 +6,7 @@
 }
 
 .links {
-    @apply flex justify-between w-2/5 items-center min-w-[400px];
+    @apply flex justify-between w-2/5 items-center ;
 }
 
 .logo {
@@ -20,3 +20,25 @@
 .btn {
     @apply text-white text-xs bg-blue-200 rounded-lg px-6 py-1.5 font-poppins cursor-pointer;
 }
+.nav img{
+    @apply w-10 h-10 hidden cursor-pointer;
+    
+}
+
+@media only screen and (max-width: 1200px) {
+    .nav{
+        @apply px-2;
+    }
+    .links {
+      @apply absolute left-[-100%] top-20 flex-col bg-white gap-0 w-screen z-20;
+    }
+    .nav img{
+        @apply inline ;
+    }
+    .link, .btn{
+        @apply my-4;
+    }
+    .links.active{
+        @apply left-0;
+    }
+  }

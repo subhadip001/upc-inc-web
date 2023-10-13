@@ -40,3 +40,18 @@
 #radio{
     @apply w-[1.65rem] h-[1.65rem] mr-3;
 } 
+
+@media only screen and (width < 800px) {
+    .input-box-cont{
+        @apply flex-wrap
+    }
+    .input-box-cont>.input-box{
+        @apply w-full;
+    }
+    .input-box{
+        @apply w-full
+    }
+    .input-box-cont button{
+        @apply w-full mb-6
+    }
+}

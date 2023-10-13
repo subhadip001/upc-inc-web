@@ -11,6 +11,13 @@
 }
 
 .result-card {
-    @apply pt-8 pb-7 px-5 text-xl mb-5 text-blue-300 font-medium min-w-[295px] rounded-[18px];
+    @apply pt-8 pb-7 px-5 text-xl mb-5 text-blue-300 font-medium min-w-[175px] rounded-[18px];
     box-shadow: 2px 4px 5px rgba(55, 55, 55, 0.15);
+}
+
+
+@media only screen and (max-width:770px) {
+    .results-sec{
+        @apply pl-7;
+    }
 }

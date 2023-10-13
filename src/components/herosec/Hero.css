@@ -23,9 +23,84 @@
 .hero-img-cont img{
     @apply w-[445px] h-[445px] rounded-[1000px] block z-0 ml-auto mr-auto;
 }
-.floating-txt{
+.floating-txt1,.floating-txt2,.floating-txt3{
     @apply bg-bisque py-4 px-6 text-2xl w-fit rounded-md z-10 absolute ;
 }
-.floating-txt em{
+em{
     @apply not-italic text-blue-100;
+}
+.floating-txt1{
+    @apply top-[200px] right-[500px]
+}
+.floating-txt2{
+    @apply top-[320px] right-[50px]
+}
+.floating-txt3{
+    @apply top-[460px] right-[460px]
+}
+
+@media only screen and (800px < width < 1200px)
+ {
+    
+    
+    .floating-txt1{
+        @apply right-[350px]
+    }
+    .floating-txt2{
+        @apply right-0;
+    }
+    .floating-txt3{
+        @apply right-[320px]
+    }
+}
+@media only screen and (800px > width > 500px){
+
+    .floating-txt1,.floating-txt2,.floating-txt3{
+        @apply text-xl;
+    }
+    .hero-sec{
+        @apply px-10 py-6 grid ;
+        
+    }
+    .hero-img-cont{
+        @apply w-2/3 max-w-full min-w-[300px];
+        grid-row: 1;
+        
+    }
+    .hero-img-cont img{
+        @apply w-72 h-72;
+    }
+    .hero-sec-info{
+        @apply w-full
+    }
+    .floating-txt1{
+        @apply right-8 top-24;
+    }
+    .floating-txt2{
+        @apply right-8 top-48
+    }
+    .floating-txt3{
+        @apply right-8 top-72
+    }
+    
+}
+@media only screen and (500px > width ){
+    .floating-txt1,.floating-txt2,.floating-txt3{
+        @apply invisible
+    }
+    .hero-sec{
+        @apply px-10 py-6 grid ;
+        
+    }
+    .hero-img-cont{
+        @apply hidden;
+        
+        
+    }
+    .hero-img-cont img{
+        @apply w-72 h-72;
+    }
+    .hero-sec-info{
+        @apply w-full
+    }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./AdminDash.css";
 import axios from "axios";
+import LinkManager from "../Link Manager/LinkManager";
 
 const AdminDash = ({ setUserDetails }) => {
   let [users, setUsers] = useState([]);
@@ -21,6 +22,7 @@ const AdminDash = ({ setUserDetails }) => {
     fetchUsers();
   }, []);
   return (
+    <>
     <div className="admin-sec">
       <h2>Admin Dashboard</h2>
       <h4>Total Users : {users.length - 1}</h4>
@@ -66,6 +68,8 @@ const AdminDash = ({ setUserDetails }) => {
         </tbody>
       </table>
     </div>
+    <LinkManager/>
+    </>
   );
 };
 

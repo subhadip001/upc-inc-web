@@ -8,6 +8,12 @@
     @apply grid grid-cols-3 gap-x-8 mb-10;
 }
 .job-card{
-    @apply bg-white pt-8 pb-7 px-5 text-xl mb-5 text-blue-300 font-medium min-w-[295px] rounded-[18px];
+    @apply bg-white pt-8 pb-7 px-5 text-xl mb-5 text-blue-300 font-medium min-w-[175px] rounded-[18px];
     box-shadow: 2px 4px 5px rgba(55, 55, 55, 0.15);
+}
+
+@media only screen and (max-width:770px) {
+    .jobs-sec{
+        @apply ml-3;
+    }
 }
