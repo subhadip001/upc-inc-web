@@ -11,6 +11,10 @@ const Navbar = ({ nav, isLoggedIn, setUser, setIsLoggedIn }) => {
     removeCookies("jwt");
     nav("/login");
   };
+  const showMenu=()=>{
+    const links=document.querySelector(".links")
+    links.classList.toggle("active")
+  }
   return (
     <div className="nav">
       <h1 className="logo">UPC INC</h1>
@@ -50,6 +54,7 @@ const Navbar = ({ nav, isLoggedIn, setUser, setIsLoggedIn }) => {
           </button>
         )}
       </div>
+      <img src="menu.png" alt="menu" onClick={showMenu}/>
     </div>
   );
 };

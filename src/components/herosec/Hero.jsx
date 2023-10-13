@@ -37,13 +37,13 @@ const Hero = ({ nav, isLoggedIn }) => {
           src="young-student-woman-wearing-denim-jacket-eyeglasses-holding-colorful-folders-showing-thumb-up-pink.jpg"
           alt="young student showing thumbs up"
         />
-        <div className="floating-txt top-[200px] right-[500px]">
+        <div className="floating-txt1 ">
           <em>150+ </em>Exams
         </div>
-        <div className="floating-txt top-[320px] right-[50px]">
+        <div className="floating-txt2 ">
           <em>13k+ </em>Vacancies
         </div>
-        <div className="floating-txt top-[460px] right-[460px]">
+        <div className="floating-txt3 ">
           <em>10k+ </em>Students
         </div>
       </div>

@@ -8,7 +8,7 @@
     @apply font-normal text-blue-300 text-xl mb-10;
 }
 .btn-cont{
-    @apply flex justify-between w-1/3 mb-10 mt-20;
+    @apply flex justify-between w-1/3 mb-10 mt-20 min-w-[500px];
 }
 .btn-cont button{
     @apply text-white  text-xl font-medium bg-blue-200 rounded-lg py-3 w-56 font-poppins cursor-pointer;
@@ -24,4 +24,14 @@
 }
 .progress{
     @apply  bg-blue-400 text-white h-6;
+}
+
+@media only screen and (width < 700px) {
+    .btn-cont{
+        @apply flex-wrap min-w-[200px];
+    }
+    .btn-cont button{
+        @apply mb-6
+    }
+
 }

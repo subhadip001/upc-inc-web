@@ -31,3 +31,18 @@
     @apply w-2/5 h-14 text-white text-base bg-blue-200 rounded-lg font-poppins cursor-pointer mt-8;
     
 }
+
+@media only screen and (width < 800px) {
+    .input-box-cont{
+        @apply flex-wrap
+    }
+    .input-box-cont>.input-box{
+        @apply w-full;
+    }
+    .input-box{
+        @apply w-full
+    }
+    .input-box-cont button{
+        @apply w-full mb-6
+    }
+}
