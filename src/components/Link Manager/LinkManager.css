@@ -1,5 +1,5 @@
 .link-manager {
-    @apply bg-light py-10 flex flex-col items-center w-screen;
+    @apply bg-light py-10 flex flex-col items-center w-screen ;
 }
 
 .link-manager h2{
@@ -18,7 +18,7 @@
     @apply outline-none ring-2 ring-blue-400;
 }
 .small-cont{
-    @apply w-6/12;
+    @apply w-6/12 min-w-[240px];
 }
 #create-btn{
     @apply w-full
@@ -26,9 +26,10 @@
 #delete-btn{
     @apply  text-white text-xl font-medium bg-red-100 rounded-lg py-3 w-56 font-poppins cursor-pointer mb-8 mt-0;
 }
-/* 
+
+
 .user-details {
-    @apply bg-white border border-blue-300 rounded-lg w-6/12 font-poppins;
+    @apply block bg-white border border-blue-300 rounded-lg w-6/12 font-poppins  min-w-[320px] overflow-auto;
     border-collapse: collapse;
 }
 
@@ -49,4 +50,4 @@
 }
 .detail-btn:hover{
     @apply text-blue-400 cursor-pointer;
-} */
+}
